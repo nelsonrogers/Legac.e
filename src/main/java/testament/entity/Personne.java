@@ -1,4 +1,4 @@
-package galerie.entity;
+package Testament.entity;
 import javax.persistence.*;
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 // cf. https://examples.javacodegeeks.com/spring-boot-with-lombok/
 @Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
 @Entity // Une entité JPA
-public class Galerie {
+public class Personne {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
 
