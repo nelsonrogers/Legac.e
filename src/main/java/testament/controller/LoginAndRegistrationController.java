@@ -31,7 +31,7 @@ public class LoginAndRegistrationController {
     public String registration(Model model) {
         model.addAttribute("userForm", new Utilisateur());
 
-        return "registration";
+        return "register";
     }
 
     @PostMapping("/registration")
@@ -39,7 +39,7 @@ public class LoginAndRegistrationController {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "register";
         }
 
         userService.save(userForm);
