@@ -7,7 +7,7 @@
 	<artifactId>ptutfie3</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>Mon PTut FIE3</name>
+	<name>Legac.e</name>
 	<description>Exemple de gestion des utilisateurs avec Spring Security</description>
 
 	<parent>
