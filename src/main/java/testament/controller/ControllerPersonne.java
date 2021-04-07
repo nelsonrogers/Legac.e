@@ -95,12 +95,12 @@ public class ControllerPersonne {
      */
     @GetMapping(path = "delete")
     public String supprimeUneCategoriePuisMontreLaListe(@RequestParam("id") Personne personne, RedirectAttributes redirectInfo) {
-        String message = "La galerie '" + personne.getNom() + "' a bien été supprimée";
+        String message = "La personne '" + personne.getNom() + "' a bien été supprimée";
         try {
             dao.delete(personne); // Ici on peut avoir une erreur (Si il y a des expositions pour cette galerie par exemple)
         } catch (DataIntegrityViolationException e) {
             // violation de contrainte d'intégrité si on essaie de supprimer une galerie qui a des expositions
-            message = "Erreur : Impossible de supprimer la galerie '" + personne.getNom() + "', il faut d'abord supprimer ses expositions";
+            message = "Erreur : Impossible de supprimer la personne '" + personne.getNom() + "', il faut d'abord supprimer ses expositions";
         }
         // RedirectAttributes permet de transmettre des informations lors d'une redirection,
         // Ici on transmet un message de succès ou d'erreur
