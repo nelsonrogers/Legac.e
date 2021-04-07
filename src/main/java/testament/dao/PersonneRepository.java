@@ -1,7 +1,7 @@
 package testament.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import Testament.entity.Personne;
+import testament.entity.Personne;
 
 // This will be AUTO IMPLEMENTED by Spring 
 
