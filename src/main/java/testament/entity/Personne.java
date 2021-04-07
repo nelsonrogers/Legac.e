@@ -1,4 +1,4 @@
-package Testament.entity;
+package testament.entity;
 import javax.persistence.*;
 import lombok.*;
 
