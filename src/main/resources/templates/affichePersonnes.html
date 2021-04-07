@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<!--/* 
+	Le contrôleur transmet deux informations à cette vue :
+		- galeries : la liste des galeries à afficher
+		- message : un éventuel message d'erreur ou d'information
+*/-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Liste des personnes</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="../static/css/style.css"/>	
+	</head>
+	<body>
+		<h1>Les personnes</h1>
+		<!--/* On appelle l'URL 'add' du contôleur */-->
+		<a th:href="@{add}" href='formulairePersonne.html'>Ajouter une personne</a>
+		<!--/* On affiche un éventuel message d'erreur */-->
+		<h3 th:text="${message}">Message de succès ou d'erreur</h3>				
+		<ul>
+			<!--/* Pour chaque catégorie gdans la liste 'galeries' transmise par le contrôleur */-->
+			<li th:each="p: ${personnes}">
+				Nom: <em th:text="${p.nom}">Le nom de la personne</em>,
+				Adresse: <em th:text="${p.adresse}">L'adresse de la personne</em>
+                                <a th:href="@{delete(id=${g.id})}">Supprimer la personne n° [[${g.id}]]</a>
+			</li>
+		</ul>
+		<hr/>
+		<a th:href="@{/}" href="../static/formulairePersonne.html">Retour au menu</a>
+		<hr/>
+	</body>
+</html>
