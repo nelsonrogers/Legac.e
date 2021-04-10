@@ -125,3 +125,51 @@ input[type=sumbit]:hover,
 input[type=submit]:focus{
 	background-color:limegreen;
 }
+
+
+body {
+  background-repeat: no-repeat;
+  background-image: url(/legac.e.png);
+  background-attachment: fixed;
+  top: 0;
+  background-size: cover;
+}
+button {
+  font-family: "Nunito Sans";
+  background-color: black;
+  color: white;
+}
+
+#connexion {
+  padding: 10px;
+  font-size: 52px;
+  height: 190px;
+  width: 300px;
+  position: absolute;
+  top: 365px;
+  left: 130px;
+}
+#creation {
+  padding: 10px;
+  font-size: 54px;
+  height: 190px;
+  width: 300px;
+  position: absolute;
+  top: 365px;
+  right: 145px;
+}
+
+p {
+  position: relative;
+  font-family: "Nunito Sans";
+  font-size: 1.6em;
+  top: 570px;
+  width: 800px;
+  margin: auto;
+  text-align: center;
+  color: black;
+}
+
+#p2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}

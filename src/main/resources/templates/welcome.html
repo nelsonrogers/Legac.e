@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="../static/css/style.css" />
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap}" rel='stylesheet' type='text/css' />
 </head>
 <body>
 <!-- Pour les visiteurs non authentifiés -->
 <div sec:authorize="isAnonymous()">
-    <h2>Welcome to our application | please <a th:href="@{/login}">Login</a></h2>
+    <a th:href="@{/registration}"><button id="creation"/>Créer un <br> compte</button></a>
+    <a th:href="@{/login}"><button id="connexion"/>Se <br> connecter</button><a/>
+    <p id="p1"><strong>Vous voulez avoir l’esprit libre quant à l’avenir de vos données numériques après votre mort ?</strong></p></br>
+    <p id="p2">Legac.e est la plateforme qui permet de sécuriser l’avenir de votre identité numérique : c’est votre héritage numérique.</p>
 </div>
 <!-- Pour les utilisateurs authentifiés -->
 <div sec:authorize="isAuthenticated()">
