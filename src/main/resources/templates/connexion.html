@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Static Template</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/connexion.css}" href="../static/css/connexion.css" />
+
+
+        <div class="header" id="myHeader">
+            <img src="/Logo.png" alt="Legac.e">
+            <h1>Page de connexion : utilisateur</h1>
+        </div>
+    </head>
+    <body>
+        <div id="div-mail">
+            <input id="mail" type="text" placeholder="Adresse mail" />
+        </div>
+        <div id="div-mdp">
+            <input id="mdp" type="password" placeholder="Mot de Passe" />
+        </div>
+        <div id="oublie">
+            <a href="" id="mdp-oublie">Mot de passe oublié ?</a>
+        </div>
+        <div id="div-suivant">
+            <input type="button" id="suivant" value="Suivant" />
+        </div>
+        <input type="button" id="Menu" value="Revenir au menu principal" />
+    </body>
+</html>

@@ -1,0 +1,128 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12 Apr 2021, 09:37:39
+    Author     : nelsonrogers
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+
+body {
+    font-family: "Nunito";
+    background-repeat: no-repeat;
+    background-image: url(/fond.png);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    top: 0;
+    background-size: cover;
+}
+
+#myHeader {
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+
+img {
+    height: 100%;
+    width: auto;
+    border: none;
+    position: absolute;
+    float: left;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Nunito Sans";
+}
+
+#Menu {
+    font-family: "Nunito Sans";
+    padding: 15px;
+    bottom: 10px;
+    width: 200px;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    border: none;
+}
+
+#div-mail {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#div-mdp {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#oublie {
+    font-family: "Nanuto";
+    font-size: 0.8em;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#div-suivant {
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#suivant {
+    font-family: "Nunito Sans";
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 220px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+div.centre {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#mdp-oublie {
+    font-family: "Nunito";
+}
+
+#mail {
+    font-size: 1.2em;
+    text-align: center;
+    width: 220px;
+    height: 45px;
+}
+
+#mdp {
+    font-size: 1.2em;
+    text-align: center;
+    width: 220px;
+    height: 45px;
+}
+
+::placeholder {
+    font-family: "Nunito";
+}

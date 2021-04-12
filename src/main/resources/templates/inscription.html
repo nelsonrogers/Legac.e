@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/inscription.css}" href="../static/css/inscription.css" />
+    <link rel="icon" type="image/png" href="/Logo.png" />
+    <title>Création d'un compte</title>
+    <div class="navbar">
+      <img src="images/logo navbar.png">
+      <a href="legace/legal" class="navbar-item" id="legal" target="_blank">Mentions légales & <br/> Conditions d'utilisation</a>
+      <a href="legace/famille" class="navbar-item" target="_blank">Se connecter : <br/> famille</a>
+      <a href="legace/utilisateur" class="navbar-item" target="_blank">Se connecter : <br/> utilisateur</a>
+      <a href="legace/compte" class="navbar-item" target="_blank">Créer un <br/> compte</a>
+    </div>
+    </head>
+  <body>
+    <h1 id="Souspage1">Merci de renseigner les champs suivants : (* obligatoire)</h1>
+    <form action="formulaireHTML.php" method="GET">
+      <div id="inscription">
+      <p>
+        <input type="text" name="nom" id="nom" placeholder="NOM COMPLET*" required />
+        <input type="date" name="dateNaiss" id="dateNaiss" required/>
+        <select id="sexe" name="sexe">
+          <option value="" disabled selected hidden>SEXE*</option>
+          <option value="homme">Homme</option>
+          <option value="femme">Femme</option>
+        </select>
+      </p>
+      <p>
+        <input
+          type="text"
+          name="prenom1"
+          id="prenom1"
+          placeholder="PRÉNOM 1*"
+          required
+        />
+        <input type="text" name="prenom2" id="prenom2" placeholder="PRÉNOM 2" />
+        <input type="text" name="prenom3" id="prenom3" placeholder="PRÉNOM 3" />
+      </p>
+      <p>
+        <input
+          type="text"
+          name="lieuNaiss"
+          id="lieuNaiss"
+          placeholder="CODE POSTAL*"
+        />
+        <input
+          type="button"
+          name="recherche"
+          id="recherche"
+          value="Rechercher"
+        />
+        <select id="commune"><option value="" disabled selected hidden>COMMUNE DE NAISSANCE*</option>
+        </select>
+      </p>
+      <p>
+        <input
+            type="text"
+            name="nomf"
+            id="nomf"
+            placeholder="PERSONNE À CONTACTER*"
+            required
+          />
+        <input
+          type="text"
+          name="nomf2"
+          id="nomf2"
+          placeholder="PERSONNE À CONTACTER N°2"
+        />
+        </p>
+      <p>
+          <input
+              type="email"
+              name="mailf"
+              id="mailf"
+              placeholder="ADRESSE E-MAIL DE LA FAMILLE*"
+              required
+            />
+          <input
+            type="email"
+            name="mailf2"
+            id="mailf2"
+            placeholder="ADRESSE E-MAIL DE LA FAMILLE N°2"
+          />
+          </p>
+          <p>
+          <label id="label-file" for="cni">JOINDRE UNE COPIE DE VOTRE CARTE D'IDENTITÉ RECTO-VERSO*
+            </label>
+          <input type="file" id="cni" name="cni" accept="image/*,.pdf">
+    </p>
+    </div>
+    <img id="p1" src="images/progression1.jpg">
+    <script src="index.js"></script>
+  <h1 id="Souspage2">Merci de sélectionner les applications que vous utilisez : </h1>
+  <div id="reseaux">
+  <div class="res">
+    <img id="logopaypal" src="images/paypal.png"></img>
+    <label id="paypal"> J'utilise cette application</label>
+    <input type="checkbox" id="cpaypal" onclick="showtext()">
+    <br>
+    <select id="spaypal" style="display:none">
+      <option value="" disabled selected hidden>Sélectionnez votre option</option>
+      <option value="formulaire">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</option>
+    </select>
+  </div>
+  <div class="res">
+      <img  src="images/pinterest.jpg"></img>
+      <label id="pinterest"> J'utilise cette application</label>
+      <input type="checkbox" id="cpinterest" onclick="showtext()">
+      <br>
+      <select id="spinterest" style="display:none">
+        <option value="" disabled selected hidden>Sélectionnez votre option</option>
+      <option value="formulaire">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</option>
+    </select>
+    </div>
+    <div class="res">
+      <img  src="images/facebook.png"></img>
+      <label id="facebook"> J'utilise cette application</label>
+      <input type="checkbox" id="cfacebook" onclick="showtext()">
+      <br>
+      <select id="sfacebook" style="display:none">
+        <option value="" disabled selected hidden>Sélectionnez votre option</option>
+        <option value="commemoration">Je souhaite avoir accès à la procédure pour transformer mon compte en compte de commémoration</option>
+        <option value="fermer">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</option>
+      </select>
+    </div>
+    <div class="res">
+      <img  src="images/twitter.png"></img>
+      <label id="twitter"> J'utilise cette application</label>
+      <input type="checkbox" id="ctwitter" onclick="showtext()">
+      <br>
+      <select id="stwitter" style="display:none">
+        <option value="" disabled selected hidden>Sélectionnez votre option</option>
+      </select>
+    </div>
+    <div class="res">
+      <img  src="images/insta.jpg"></img>
+      <label id="instagram"> J'utilise cette application</label>
+      <input type="checkbox" id="cinstagram" onclick="showtext()">
+      <br>
+      <select id="sinstagram" style="display:none">
+        <option value="" disabled selected hidden>Sélectionnez votre option</option>
+        <option value="commemoration">Je souhaite avoir accès à la procédure pour transformer mon compte en compte de commémoration</option>
+        <option value="fermer">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</option>
+      </select>
+    </div>
+    <div class="res">
+      <img  src="images/google.png"></img>
+      <label id="google"> J'utilise cette application</label>
+      <input type="checkbox" id="cgoogle" onclick="showtext()">
+      <br>
+      <select id="sgoogle" style="display:none">
+        <option value="" disabled selected hidden>Sélectionnez votre option</option>
+        <option value="iam">Je souhaite avoir accès à l'Inactive Account Manager</option>
+      </select>
+    </div>
+   <br>
+</div>
+<img id="p2" src="images/progression2.jpg">
+<div id="verif">
+  <h1 id="Souspage3">Merci de vérifier les informations suivantes :</h1>
+    <p id="phrase0">
+      Merci de renseigner une adresse e-Mail valide, votre numéro de téléphone et un mot de passe. Ce dernier sera à conserver précieusement. En cas de changement d'adresse e-mail, merci de le modifier dans votre espace utilisateur.
+    </p>
+      <p>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Adresse E-Mail valide*"
+          required
+        />
+      <input
+            type="tel"
+            name="tel"
+            id="tel"
+            placeholder="Téléphone*"
+            required
+          />
+        <input
+            type="password"
+            name="mdp"
+            id="mdp"
+            placeholder="Mot de passe*"
+            required
+        />
+        </p>
+      <div id="testamentecrit">
+          <label>Voulez-vous recevoir un modèle de testament écrit par mail ?</label>
+          <input type="checkbox" id="ctestamentecrit">
+      </div>
+      <p id="phrase1">
+      En cliquant sur "Valider", vous confirmez votre inscription à nos services et les <a id="cgu" href="legace/legal"> Conditions d'Utilisation</a> de notre outil de testament numérique. Vous confirmez également l'excactitude des informations renseignées précédemment. Nous vous enverrons un mail de confirmation d'inscription avec votre identifiant.
+      </p>
+      <p id="phrase2">
+      Pour valider légalement votre inscription à ce site, vous devez inscrire sur votre testament, de manière claire, que notre entreprise <i>Legac.e</i> est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.
+      </p>
+      <input type="submit" id="valider" value="Valider">
+    </div>
+    <img id="p3" src="images/progression3.jpg">
+    </form>
+    <a id="renvoi1" href="#etatcivil"></a>
+    <a id="renvoi2" href="#reseauxconcernes"></a>
+    <a id="renvoi3" href="#verification"></a>
+    </body>
+</html>

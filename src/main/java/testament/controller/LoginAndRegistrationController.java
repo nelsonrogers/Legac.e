@@ -31,7 +31,7 @@ public class LoginAndRegistrationController {
     public String registration(Model model) {
         model.addAttribute("userForm", new Utilisateur());
 
-        return "register";
+        return "inscription";
     }
 
     @PostMapping("/registration")
@@ -39,7 +39,7 @@ public class LoginAndRegistrationController {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "register";
+            return "inscription";
         }
 
         userService.save(userForm);
@@ -57,7 +57,7 @@ public class LoginAndRegistrationController {
         if (logout != null)
             model.addAttribute("message", "Vous avez été déconnecté.");
 
-        return "login";
+        return "connexion";
     }
 
     @GetMapping({"/", "/welcome"})
