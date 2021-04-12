@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+.navbar {
+  overflow: hidden;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: black;
+}
+
+.navbar a {
+  font-family: "Nunito";
+  min-width: 300px;
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 42px 16px;
+  text-decoration: none;
+  font-size: 35px;
+}
+
+#infos {
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
+.navbar a:hover {
+  background-color: white;
+  height: 100%;
+  color: black;
+}
+
+.navbar a.active {
+  color: black;
+  font-family: "Nunito Sans";
+}
+
+.navbar img {
+  height: 100%;
+  width: auto;
+  border: none;
+  position: absolute;
+  float: left;
+}
+body {
+  background-image: url("images/fond2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: "Nunito";
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 150px;
+  font-size: 55px;
+  font-weight: bold;
+  font-family: "Nunito Sans";
+}
+#texteAccueil {
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  font-size: 25px;
+}
+
+div.centre {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+p {
+  width: 650px;
+}
