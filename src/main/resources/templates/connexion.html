@@ -14,7 +14,7 @@
         </div>
     </head>
     <body>
-        <form method="POST" th:object="${userForm}" th:action="@{/login}" class="form-signin">
+        <form method="POST" th:object="${userForm}" th:action="@{/connexion}" class="form-signin">
             <div class="form-group" th:classappend="${#strings.isEmpty(error) ? 'has-error' : ''}">
                 <div id="div-mail">
                     <input id="mail" name="adresseMail" type="text" placeholder="Adresse mail" autofocus="true"/>

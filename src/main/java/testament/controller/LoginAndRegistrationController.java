@@ -57,11 +57,25 @@ public class LoginAndRegistrationController {
         if (logout != null)
             model.addAttribute("message", "Vous avez été déconnecté.");
 
-        return "login";
+        return "connexion";
     }
 
     @GetMapping({"/", "/welcome"})
     public String welcome(Model model) {
         return "welcome";
+    }
+    @GetMapping("/inscription")
+    public String inscription(Model model) {
+        return "connexion";
+    }
+    @GetMapping("/connexion")
+    public String connexion(Model model, String error, String logout) {
+        if (error != null)
+            model.addAttribute("error", "Nom d'utilisateur ou mot de passe incorrect.");
+
+        if (logout != null)
+            model.addAttribute("message", "Vous avez été déconnecté.");
+
+        return "espaceUtilisateur";
     }
 }
