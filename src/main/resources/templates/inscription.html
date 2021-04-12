@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="/Logo.png" />
     <title>Création d'un compte</title>
     <div class="navbar">
-      <img src="images/logo navbar.png">
+      <img src="/logoNavbar.png">
       <a href="legace/legal" class="navbar-item" id="legal" target="_blank">Mentions légales & <br/> Conditions d'utilisation</a>
       <a href="legace/famille" class="navbar-item" target="_blank">Se connecter : <br/> famille</a>
       <a href="legace/utilisateur" class="navbar-item" target="_blank">Se connecter : <br/> utilisateur</a>
@@ -92,12 +92,12 @@
           <input type="file" id="cni" name="cni" accept="image/*,.pdf">
     </p>
     </div>
-    <img id="p1" src="images/progression1.jpg">
-    <script src="index.js"></script>
+    <img id="p1" src="/progression1.jpeg">
+    
   <h1 id="Souspage2">Merci de sélectionner les applications que vous utilisez : </h1>
   <div id="reseaux">
   <div class="res">
-    <img id="logopaypal" src="images/paypal.png"></img>
+    <img id="logopaypal" src="/paypal.png"></img>
     <label id="paypal"> J'utilise cette application</label>
     <input type="checkbox" id="cpaypal" onclick="showtext()">
     <br>
@@ -107,7 +107,7 @@
     </select>
   </div>
   <div class="res">
-      <img  src="images/pinterest.jpg"></img>
+      <img  src="/pinterest.jpeg"></img>
       <label id="pinterest"> J'utilise cette application</label>
       <input type="checkbox" id="cpinterest" onclick="showtext()">
       <br>
@@ -117,7 +117,7 @@
     </select>
     </div>
     <div class="res">
-      <img  src="images/facebook.png"></img>
+      <img  src="/facebook.png"></img>
       <label id="facebook"> J'utilise cette application</label>
       <input type="checkbox" id="cfacebook" onclick="showtext()">
       <br>
@@ -128,7 +128,7 @@
       </select>
     </div>
     <div class="res">
-      <img  src="images/twitter.png"></img>
+      <img  src="/twitter.png"></img>
       <label id="twitter"> J'utilise cette application</label>
       <input type="checkbox" id="ctwitter" onclick="showtext()">
       <br>
@@ -137,7 +137,7 @@
       </select>
     </div>
     <div class="res">
-      <img  src="images/insta.jpg"></img>
+      <img  src="/insta.jpeg"></img>
       <label id="instagram"> J'utilise cette application</label>
       <input type="checkbox" id="cinstagram" onclick="showtext()">
       <br>
@@ -148,7 +148,7 @@
       </select>
     </div>
     <div class="res">
-      <img  src="images/google.png"></img>
+      <img  src="/google.png"></img>
       <label id="google"> J'utilise cette application</label>
       <input type="checkbox" id="cgoogle" onclick="showtext()">
       <br>
@@ -159,7 +159,7 @@
     </div>
    <br>
 </div>
-<img id="p2" src="images/progression2.jpg">
+<img id="p2" src="/progression2.jpeg">
 <div id="verif">
   <h1 id="Souspage3">Merci de vérifier les informations suivantes :</h1>
     <p id="phrase0">
@@ -200,10 +200,11 @@
       </p>
       <input type="submit" id="valider" value="Valider">
     </div>
-    <img id="p3" src="images/progression3.jpg">
+    <img id="p3" src="/progression3.jpeg">
     </form>
     <a id="renvoi1" href="#etatcivil"></a>
     <a id="renvoi2" href="#reseauxconcernes"></a>
     <a id="renvoi3" href="#verification"></a>
+    <script th:src="@{/js/inscription.js}" src="../static/js/inscription.js"></script>
     </body>
 </html>
