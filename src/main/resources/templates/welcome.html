@@ -19,6 +19,7 @@
 </div>
 <!-- Pour les utilisateurs authentifiés -->
 <div sec:authorize="isAuthenticated()">
+
     <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>

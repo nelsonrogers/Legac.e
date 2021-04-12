@@ -19,6 +19,6 @@ public class UserController {
             @AuthenticationPrincipal Utilisateur user,  // Les infos de l'utilisateur connecté
             Model model) {
         log.info("L'utilisateur id: {}, email: {} accède à sa page", user.getId(), user.getEmail());
-        return "pageUser"; // On affiche la vue 'pageUser.html'
+        return "espaceUtilisateur"; // On affiche la vue 'pageUser.html'
     }
 }

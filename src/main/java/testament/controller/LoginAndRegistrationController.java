@@ -57,7 +57,7 @@ public class LoginAndRegistrationController {
         if (logout != null)
             model.addAttribute("message", "Vous avez été déconnecté.");
 
-        return "connexion";
+        return "login";
     }
 
     @GetMapping({"/", "/welcome"})

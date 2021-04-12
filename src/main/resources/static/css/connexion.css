@@ -91,6 +91,7 @@ h1 {
 #suivant {
     font-family: "Nunito Sans";
     font-size: 1.2em;
+    text-decoration: none;
     cursor: pointer;
     width: 220px;
     height: 40px;
