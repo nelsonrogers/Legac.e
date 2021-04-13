@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -43,87 +43,5 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
-</body>
-</html>-->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Formulaire de départ</title>
-</head>
-<body>
-<form action="formulaireHTML.php" method="GET">
-    <h1>Formulaire à remplir :</h1>
-    <p>
-        <label for="nom"> Saisir votre nom :</label>
-        <input type="text" name="nom" id="nom" placeholder="nom" required />
-    </p>
-    <p>
-        <label for="prenom"> Saisir votre/vos prénom(s) :</label><br />
-        <input
-                type="text"
-                name="prenom1"
-                id="prenom1"
-                placeholder="prénom 1"
-                required
-        />
-        <br />
-        <input type="text" name="prenom2" id="prenom2" placeholder="prénom 2" />
-        <br />
-        <input type="text" name="prenom3" id="prenom3" placeholder="prénom 3" />
-    </p>
-    <p>
-        <label for="dateNaiss"> Saisir votre date de naissance :</label>
-        <input
-                type="date"
-                name="dateNaiss"
-                id="dateNaiss"
-                placeholder="date de naissance"
-                required
-        />
-    </p>
-
-    <p>
-        <label for="email"> Saisir votre adresse e-mail (valide) </label>
-        <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="adresse e-mail"
-                required
-        />
-    </p>
-    <p>
-        <label for="lieuNaiss">
-            Saisir le nom de votre ville de naissance : </label
-        ><br />
-        <input
-                type="text"
-                name="lieuNaiss"
-                id="lieuNaiss"
-                placeholder="Nom de votre ville"
-        /><br />
-        <input
-                type="button"
-                name="recherche"
-                id="recherche"
-                value="Rechercher"
-        /><br />
-        <select id="codePostal"></select>
-        <select id="commune"></select>
-    </p>
-    <p>
-        <label for="sexe"> Indiquer votre sexe : </label>
-        <br /><select id="sexe" name="sexe">
-        <option value="homme" selected="selected"> Homme</option>
-        <option value="femme">Femme </option>
-    </select>
-    </p>
-    <p><input type="submit" id="envoyer" /></p>
-</form>
-<script src="js/java.js"></script>
 </body>
 </html>

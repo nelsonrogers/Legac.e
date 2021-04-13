@@ -18,7 +18,7 @@
     </head>
   <body>
     <h1 id="Souspage1">Merci de renseigner les champs suivants : (* obligatoire)</h1>
-    <form  method="GET" th:action="@{/inscription}">
+    <form  method="POST" th:object="${userForm}" th:action="@{/registration}">
       <div id="inscription">
       <p>
         <input type="text" name="nom" id="nom" placeholder="NOM COMPLET*" required />
