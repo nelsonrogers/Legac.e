@@ -8,6 +8,7 @@ import testament.entity.Utilisateur;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import testament.entity.Personne;
 
 @Service
 @Slf4j
@@ -23,6 +24,7 @@ public class UserServiceImpl implements UserService {
     private String adminPassword;
     @Value("${admin.email}")
     private String adminEmail;
+    private Personne adminPersonne;
 
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
@@ -54,7 +56,7 @@ public class UserServiceImpl implements UserService {
             Role roleUser = new Role("ROLE_USER");
             roleRepository.save(roleAdmin);
             roleRepository.save(roleUser);
-            Utilisateur firstAdmin = new Utilisateur(adminLogin, adminPassword, adminEmail);
+            Utilisateur firstAdmin = new Utilisateur(adminLogin, adminPassword, adminEmail,adminPersonne);
             // On crypte le mot de passe avant de l'enregistrer
             firstAdmin.setPassword(bCryptPasswordEncoder.encode(firstAdmin.getPassword()));
             firstAdmin.getRoles().add(roleAdmin);
