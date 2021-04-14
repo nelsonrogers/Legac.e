@@ -59,6 +59,17 @@ public class LoginAndRegistrationController {
 
         return "connexion";
     }
+    
+    @PostMapping("/espaceUtilisateur")
+    public String accueil(Model model, String error, String logout) {
+        if (error != null)
+            model.addAttribute("error", "Nom d'utilisateur ou mot de passe incorrect.");
+
+        if (logout != null)
+            model.addAttribute("message", "Vous avez été déconnecté.");
+
+        return "espaceUtilisateur";
+    }
 
     @GetMapping({"/", "/welcome"})
     public String welcome(Model model) {
@@ -68,6 +79,8 @@ public class LoginAndRegistrationController {
     public String inscription(Model model) {
         return "connexion";
     }
+    
+    /*
     @GetMapping("/connexion")
     public String connexion(Model model, String error, String logout) {
         if (error != null)
@@ -77,5 +90,5 @@ public class LoginAndRegistrationController {
             model.addAttribute("message", "Vous avez été déconnecté.");
 
         return "espaceUtilisateur";
-    }
+    }*/
 }

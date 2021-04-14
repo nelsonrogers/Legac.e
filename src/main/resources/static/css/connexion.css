@@ -72,15 +72,6 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-#oublie {
-    font-family: "Nanuto";
-    font-size: 0.8em;
-    position: absolute;
-    top: 58%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 #div-suivant {
     position: absolute;
     top: 64%;
@@ -91,7 +82,6 @@ h1 {
 #suivant {
     font-family: "Nunito Sans";
     font-size: 1.2em;
-    text-decoration: none;
     cursor: pointer;
     width: 220px;
     height: 40px;

@@ -1,43 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/espaceUtilisateur.css}" href="../static/css/espaceUtilisateur.css" />
 
     <title>Espace utilisateur</title>
-    <div class="navbar">
-        <img src="/Logo.png" />
-
-        <a id="tuto" href="legace/utilisateur" class="tutorielsU" target="_blank"
-        >Tutoriels</a
-        >
-        <a id="souvenir" href="legace/famille" class="souvenirsU" target="_blank"
-        >Page souvenir</a
-        >
-        <a id="infos" href="legace/compte" class="informationU" target="_blank"
-        >Informations utilisateur</a
-        >
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+              <a href="#"><img id="logo" src="/logoNavbar.png"></a>
+            </div>
+            <div class="dropdown">
+            <button class="dropbtn">Menu
+              <i class="fa fa-caret-down"></i>
+            </button>
+              
+            <div class="dropdown-content">
+              <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+              </form>
+              <a onclick="document.forms['logoutForm'].submit()">Déconnexion</a>
+              <a href="#">Page souvenir</a>
+              <a href="#" class="active">Préférences Réseaux</a>
+              <a href="#">Informations Utilisateur</a>
+              </div>
+            
+            </div>
+        </div>
+      </nav>
+    </head>
+  <body>
+    <div sec:authorize="isAnonymous()">
+        <p id="p2">Vous êtes anonyme</p>
     </div>
-</head>
-<body>
-<h1>Bienvenue dans l’espace utilisateur de Legac.e</h1>
-<div id="texteAccueil">
-    <p>
-        Retrouvez ici toutes les informations importantes de votre compte dans
-        l’onglet « Informations utilisateur ».
-    </p>
-    <br />
-    <p>
-        Des tutoriels sont mis à votre disposition dans l’onglet « Tutoriels »
-        afin de paramétrer le futur de vos données numériques.
-    </p>
-    <br />
-    <p>
-        Vous pourrez également créer une « Page souvenir » à laquelle vos
-        proches auront accès dans l’onglet du même nom.
-    </p>
-</div>
-</body>
+      
+      
+    <div sec:authorize="isAuthenticated()">
+        <h1>Bienvenue dans l’espace utilisateur de Legac.e</h1>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+
+            <div id="texteAccueil">
+              <p>
+                Retrouvez ici toutes les informations importantes de votre compte dans
+                l’onglet « Informations utilisateur ».
+              </p>
+              <br />
+              <p>
+                Des tutoriels sont mis à votre disposition dans l’onglet « Tutoriels »
+                afin de paramétrer le futur de vos données numériques.
+              </p>
+              <br />
+              <p>
+                Vous pourrez également créer une « Page souvenir » à laquelle vos
+                proches auront accès dans l’onglet du même nom.
+              </p>
+            </div>
+        </div>
+        
+        <div sec:authorize="hasRole('ROLE_USER')">
+            <div id="texteAccueil">
+              <p>
+                Retrouvez ici toutes les informations importantes de votre compte dans
+                l’onglet « Informations utilisateur ».
+              </p>
+              <br />
+              <p>
+                Des tutoriels sont mis à votre disposition dans l’onglet « Tutoriels »
+                afin de paramétrer le futur de vos données numériques.
+              </p>
+              <br />
+              <p>
+                Vous pourrez également créer une « Page souvenir » à laquelle vos
+                proches auront accès dans l’onglet du même nom.
+              </p>
+            </div>
+        </div>
+        
+        <!--<div sec:authorize="hasRole('ROLE_FAMILLE')">
+            <p>T'es sur un compte famille</p>
+        </div>-->
+    </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+  </body>
 </html>

@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<div sec:authorize="isAuthenticated()">
 
 <div class="container">
     <form method="POST" th:action="@{/login}" action="#" class="form-signin">
@@ -27,6 +28,7 @@
             <h4 class="text-center"><a th:href="@{/registration}" href="registration.html">Create an account</a></h4>
         </div>
     </form>
+</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
