@@ -13,13 +13,8 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-@Entity
-// Lombok
-@Getter
-@Setter
-@NoArgsConstructor
-@RequiredArgsConstructor
-@ToString
+@Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
+@Entity 
 public class Utilisateur implements UserDetails {
 
     @Id

@@ -52,8 +52,10 @@ public class UserServiceImpl implements UserService {
             log.info("Création des deux rôles et de l'administrateur");
             Role roleAdmin = new Role("ROLE_ADMIN");
             Role roleUser = new Role("ROLE_USER");
+            Role roleFamille = new Role("ROLE_FAMILLE");
             roleRepository.save(roleAdmin);
             roleRepository.save(roleUser);
+            roleRepository.save(roleFamille);
             Utilisateur firstAdmin = new Utilisateur(adminLogin, adminPassword, adminEmail);
             // On crypte le mot de passe avant de l'enregistrer
             firstAdmin.setPassword(bCryptPasswordEncoder.encode(firstAdmin.getPassword()));
