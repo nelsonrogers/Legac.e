@@ -1,4 +1,6 @@
 package testament.entity;
+import java.util.LinkedList;
+import java.util.List;
 import javax.persistence.*;
 import lombok.*;
 
@@ -19,5 +21,17 @@ public class Personne {
     @NonNull
     private String adresse;
     
-    // TODO : Mettre en oeuvre la relation oneToMany vers Exposition
+    
+    @OneToMany(mappedBy = "personne")
+    private List<Service> services = new LinkedList<>();
+    
+    @OneToMany(mappedBy = "personnes")
+    private List<Utilisateur> utilisateurs = new LinkedList<>();
+    
+    @OneToOne
+    private Infos_Deces deces;
+    
+    /*public boolean isDead(){
+        
+    }*/
 }
