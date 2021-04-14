@@ -8,6 +8,7 @@ import testament.entity.Utilisateur;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import testament.entity.Personne;
 
 @Service
 @Slf4j
@@ -23,6 +24,7 @@ public class UserServiceImpl implements UserService {
     private String adminPassword;
     @Value("${admin.email}")
     private String adminEmail;
+    private Personne adminPersonne;
 
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;

@@ -15,10 +15,11 @@ import javax.persistence.OneToOne;
 public enum Reseau {
     FACEBOOK,TWITTER,INSTAGRAM,PINTEREST,PAYPAL,GOOGLE;
     
+    /*
     @OneToOne(mappedBy="reseauutilisateur")
     private Utilisateur usersreseau;
     
     @OneToMany(mappedBy="reseau")
     private Service servicereseau;
-    
+    */
 }

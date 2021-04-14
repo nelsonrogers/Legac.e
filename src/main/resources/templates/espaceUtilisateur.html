@@ -32,14 +32,8 @@
       </nav>
     </head>
   <body>
-    <div sec:authorize="isAnonymous()">
-        <p id="p2">Vous êtes anonyme</p>
-    </div>
       
-      
-    <div sec:authorize="isAuthenticated()">
         <h1>Bienvenue dans l’espace utilisateur de Legac.e</h1>
-        <div sec:authorize="hasRole('ROLE_ADMIN')">
 
             <div id="texteAccueil">
               <p>
@@ -59,29 +53,10 @@
             </div>
         </div>
         
-        <div sec:authorize="hasRole('ROLE_USER')">
-            <div id="texteAccueil">
-              <p>
-                Retrouvez ici toutes les informations importantes de votre compte dans
-                l’onglet « Informations utilisateur ».
-              </p>
-              <br />
-              <p>
-                Des tutoriels sont mis à votre disposition dans l’onglet « Tutoriels »
-                afin de paramétrer le futur de vos données numériques.
-              </p>
-              <br />
-              <p>
-                Vous pourrez également créer une « Page souvenir » à laquelle vos
-                proches auront accès dans l’onglet du même nom.
-              </p>
-            </div>
-        </div>
         
         <!--<div sec:authorize="hasRole('ROLE_FAMILLE')">
             <p>T'es sur un compte famille</p>
         </div>-->
-    </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
       <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
   </body>

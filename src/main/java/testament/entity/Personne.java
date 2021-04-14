@@ -21,7 +21,7 @@ public class Personne {
     @NonNull
     private String adresse;
     
-    
+    /*
     @OneToMany(mappedBy = "personne")
     private List<Service> services = new LinkedList<>();
     
@@ -30,6 +30,7 @@ public class Personne {
     
     @OneToOne
     private Infos_Deces deces;
+    */
     
     /*public boolean isDead(){
         

@@ -41,12 +41,16 @@ public class Utilisateur implements UserDetails {
     @Setter(AccessLevel.NONE)
     private List<Role> roles = new LinkedList<>();
     
+    
+    /*
     @ManyToOne
     @NonNull
     private Personne personnes;
     
     @OneToOne
     private Reseau reseauutilisateur;
+
+    */
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
