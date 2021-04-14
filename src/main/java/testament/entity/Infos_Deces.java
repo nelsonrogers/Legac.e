@@ -5,20 +5,13 @@
  */
 package testament.entity;
 
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
  *
  * @author bapti
  */
-public enum Reseau {
-    FACEBOOK,TWITTER,INSTAGRAM,PINTEREST,PAYPAL,GOOGLE;
-    
-    @OneToOne(mappedBy="reseauutilisateur")
-    private Utilisateur usersreseau;
-    
-    @OneToMany(mappedBy="reseau")
-    private Service servicereseau;
-    
+public class Infos_Deces {
+    @OneToOne(mappedBy="deces")
+    private Personne personnedecedee;
 }

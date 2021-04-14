@@ -5,10 +5,51 @@
  */
 package testament.entity;
 
+import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 /**
  *
  * @author nelsonrogers
  */
+@Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
+@Entity 
 public class Service {
+    @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Integer id;
     
+    @NonNull
+    private String type;
+    
+    @NonNull
+    private LocalDate date;
+    
+    @NonNull
+    private String message;
+    
+    @NonNull
+    private String image;
+    
+    /*public boolean isReccurrent(){
+        
+    }*/
+    
+    @ManyToOne
+    @NonNull
+    private Reseau reseau;
+    
+    @ManyToOne
+    @NonNull
+    private Personne personne;
+
 }
