@@ -49,6 +49,7 @@ public class LoginAndRegistrationController {
         return "redirect:/welcome";
     }
 
+    /*Pourquoi quand on appelle ça dans la page login ça nous renvoie vers la page welcome ??*/
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
         if (error != null)
@@ -60,13 +61,16 @@ public class LoginAndRegistrationController {
         return "connexion";
     }
     
+    /* On utilise cette méthode */
     @PostMapping("/espaceUtilisateur")
-    public String accueil(Model model, String error, String logout) {
+    public String accueil(@Valid @ModelAttribute("userForm") Utilisateur userForm, Model model, String error, String logout) {
         if (error != null)
             model.addAttribute("error", "Nom d'utilisateur ou mot de passe incorrect.");
 
         if (logout != null)
             model.addAttribute("message", "Vous avez été déconnecté.");
+        
+        securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
 
         return "espaceUtilisateur";
     }

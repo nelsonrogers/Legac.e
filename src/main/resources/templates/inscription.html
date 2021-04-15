@@ -21,7 +21,7 @@
     <form  method="POST" th:object="${userForm}" th:action="@{/registration}">
       <div id="inscription">
       <p>
-        <input type="text" name="nom" id="nom" placeholder="NOM COMPLET*" required />
+          <input type="text" name="nom" id="nom" placeholder="NOM COMPLET*" required />
         <input type="date" name="dateNaiss" id="dateNaiss" required/>
         <select id="sexe" name="sexe">
           <option value="" disabled selected hidden>SEXE*</option>
@@ -89,7 +89,7 @@
           <p>
           <label id="label-file" for="cni">JOINDRE UNE COPIE DE VOTRE CARTE D'IDENTITÉ RECTO-VERSO*
             </label>
-          <input type="file" id="cni" name="cni" accept="image/*,.pdf">
+          <input type="file" id="cni" name="cni">
     </p>
     </div>
     <img id="p1" src="/progression1.jpeg">
@@ -170,6 +170,7 @@
           type="email"
           name="email"
           id="email"
+          th:field="*{email}"
           placeholder="Adresse E-Mail valide*"
           required
         />
@@ -184,6 +185,7 @@
             type="password"
             name="mdp"
             id="mdp"
+            th:field="*{password}"
             placeholder="Mot de passe*"
             required
         />
@@ -198,6 +200,11 @@
       <p id="phrase2">
       Pour valider légalement votre inscription à ce site, vous devez inscrire sur votre testament, de manière claire, que notre entreprise <i>Legac.e</i> est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.
       </p>
+      <div class='form-group' th:classappend="${#fields.hasErrors('passwordConfirm') ? 'has-error' : ''}">
+            <input type="password"  th:field="*{passwordConfirm}"  class="form-control"
+                   placeholder="Confirm your password" />
+            <ul><li th:errors="*{passwordConfirm}">Erreur confirmation password</li></ul>
+        </div>
       <input type="submit" id="valider" value="Valider">
     </div>
     <img id="p3" src="/progression3.jpeg">

@@ -16,7 +16,8 @@
             <button class="dropbtn">Menu
               <i class="fa fa-caret-down"></i>
             </button>
-              
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+
             <div class="dropdown-content">
               <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -26,6 +27,32 @@
               <a href="#" class="active">Préférences Réseaux</a>
               <a href="#">Informations Utilisateur</a>
               </div>
+            </div>
+                
+            <div sec:authorize="hasRole('ROLE_USER')">
+
+            <div class="dropdown-content">
+              <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+              </form>
+              <a onclick="document.forms['logoutForm'].submit()">Déconnexion</a>
+              <a href="#">Page souvenir</a>
+              <a href="#" class="active">Préférences Réseaux</a>
+              <a href="#">Informations Utilisateur</a>
+              </div>
+            </div>
+                
+            <div sec:authorize="hasRole('ROLE_FAMILLE')">
+
+            <div class="dropdown-content">
+              <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+              </form>
+              <a onclick="document.forms['logoutForm'].submit()">Déconnexion</a>
+              <a href="#">Page souvenir</a>
+              <a href="#" class="active">Préférences Réseaux</a>
+              </div>
+            </div>
             
             </div>
         </div>
@@ -34,7 +61,8 @@
   <body>
       
         <h1>Bienvenue dans l’espace utilisateur de Legac.e</h1>
-
+        <!-- Malgré le passage par la page connexion, on n'est pas connecté et cette partie ne s'affiche pas-->
+        <div sec:authorize="isAuthenticated()">
             <div id="texteAccueil">
               <p>
                 Retrouvez ici toutes les informations importantes de votre compte dans
@@ -54,10 +82,9 @@
         </div>
         
         
-        <!--<div sec:authorize="hasRole('ROLE_FAMILLE')">
-            <p>T'es sur un compte famille</p>
+        
+        <!--<div sec:authorize="hasRole('ROLE_ADMIN')">
+            <p>T'es sur un compte admin</p>
         </div>-->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-      <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
   </body>
 </html>

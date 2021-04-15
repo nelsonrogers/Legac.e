@@ -14,8 +14,10 @@
         </div>
     </head>
     <body>
-      
-        <form method="POST" th:action="@{/espaceUtilisateur}" action="#" class="form-signin">
+        <!--ici remplacer "login" par "espaceUtilisateur" pour avoir ce qu'on veut faire : problème, l'utilisateur n'est pas connecté
+        Et POURQUOI quand on subit avec l'action /login ça nous renvoie vers la page welcome ?? 
+        Je n'ai pas l'impression que c'est implémenté dans le controller par le bias de /login...-->
+        <form method="POST" th:action="@{/espaceUtilisateur}" action="#" class="form-signin"> 
             <div class="form-group" th:classappend="${#strings.isEmpty(error) ? 'has-error' : ''}">
                 <div id="div-mail">
                     <input id="mail" name="username" type="text" placeholder="Adresse mail" autofocus="true"/>
@@ -30,7 +32,7 @@
                 </div>
             </div>
         </form>
-        <input th:href="@{/welcome}" type="button" id="Menu" value="Revenir au menu principal" />
+        <a href="#" th:href="@{/welcome}"><button id="Menu" >Revenir au menu principal</button></a>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>

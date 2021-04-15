@@ -21,6 +21,7 @@
 }
 
 .dropdown-content a {
+  cursor: pointer;
   float: right;
   background-color: black;
   margin-left: 20px;
@@ -41,7 +42,7 @@
 #logo {
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: -10px;
   height: 100px;
   width: auto;
 }
@@ -112,10 +113,9 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   font-family: "Nunito";
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
+
+
 h1 {
   text-align: center;
   margin-bottom: 50px;
@@ -124,8 +124,12 @@ h1 {
   font-weight: bold;
   font-family: "Nunito Sans";
 }
+
 #texteAccueil {
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
+  justify-content: center;
   margin-left: 20%;
   margin-right: 20%;
   font-size: 25px;

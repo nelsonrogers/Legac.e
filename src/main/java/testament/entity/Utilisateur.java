@@ -1,5 +1,6 @@
 package testament.entity;
 
+import java.time.LocalDate;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import org.springframework.lang.Nullable;
 
 @Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
 @Entity 
@@ -26,10 +28,53 @@ public class Utilisateur implements UserDetails {
     // Contraintes de taille
     @Size(min = 6, max = 32)
     private String username;
-
+    
+    /*@NonNull // Lombok
+    @Email
+    private String email;*/
+    
     @NonNull // Lombok
     private String password;
-
+    
+    /*@NonNull
+    private String telephone;
+    
+    @NonNull
+    private String nom;
+    
+    @NonNull
+    private String prenom;
+    
+    @Nullable
+    private String prenom2;
+    
+    @Nullable
+    private String prenom3;
+    
+    @NonNull
+    private LocalDate dateNaiss;
+    
+    @NonNull
+    private String sexe;
+    
+    @NonNull
+    private String codePostal;
+    
+    @NonNull
+    private String communeNaiss;
+    
+    @NonNull
+    private String proche;
+    
+    @NonNull
+    private String emailProche;
+    
+    @Nullable
+    private String proche2;
+    
+    @Nullable
+    private String emailProche2;*/
+   
     @NonNull // Lombok
     @Email // Doit avoir la forme d'une adresse email
     private String email;
