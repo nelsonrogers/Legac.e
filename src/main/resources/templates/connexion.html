@@ -17,10 +17,10 @@
         <!--ici remplacer "login" par "espaceUtilisateur" pour avoir ce qu'on veut faire : problème, l'utilisateur n'est pas connecté
         Et POURQUOI quand on subit avec l'action /login ça nous renvoie vers la page welcome ?? 
         Je n'ai pas l'impression que c'est implémenté dans le controller par le bias de /login...-->
-        <form method="POST" th:action="@{/espaceUtilisateur}" action="#" class="form-signin"> 
+        <form method="POST" th:action="@{/login}" action="#" class="form-signin"> 
             <div class="form-group" th:classappend="${#strings.isEmpty(error) ? 'has-error' : ''}">
-                <div id="div-mail">
-                    <input id="mail" name="username" type="text" placeholder="Adresse mail" autofocus="true"/>
+                <div id="div-username">
+                    <input id="username" name="username" type="text" placeholder="Nom d'utilisateur" autofocus="true"/>
                 </div>
                 <div id="div-mdp">
                     <input id="mdp" name="password" type="password" placeholder="Mot de Passe" />

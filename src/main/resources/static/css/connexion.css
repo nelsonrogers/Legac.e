@@ -58,7 +58,7 @@ h1 {
     border: none;
 }
 
-#div-mail {
+#div-username {
     position: absolute;
     top: 43%;
     left: 50%;
@@ -100,7 +100,7 @@ div.centre {
     font-family: "Nunito";
 }
 
-#mail {
+#username {
     font-size: 1.2em;
     text-align: center;
     width: 220px;

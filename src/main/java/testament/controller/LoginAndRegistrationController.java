@@ -58,22 +58,25 @@ public class LoginAndRegistrationController {
         if (logout != null)
             model.addAttribute("message", "Vous avez été déconnecté.");
 
-        return "connexion";
+        return "login";
     }
     
-    /* On utilise cette méthode */
+    /*
     @PostMapping("/espaceUtilisateur")
     public String accueil(@Valid @ModelAttribute("userForm") Utilisateur userForm, Model model, String error, String logout) {
+        
         if (error != null)
             model.addAttribute("error", "Nom d'utilisateur ou mot de passe incorrect.");
 
         if (logout != null)
             model.addAttribute("message", "Vous avez été déconnecté.");
         
+        userService.save(userForm);
+        
         securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
 
         return "espaceUtilisateur";
-    }
+    }*/
 
     @GetMapping({"/", "/welcome"})
     public String welcome(Model model) {

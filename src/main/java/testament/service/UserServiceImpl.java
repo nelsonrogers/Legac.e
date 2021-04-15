@@ -25,32 +25,32 @@ public class UserServiceImpl implements UserService {
     private String adminPassword;
     @Value("${admin.email}")
     private String adminEmail;
-    /*@Value("${}admin.telephone")
+    @Value("${admin.telephone}")
     private String adminTelephone;
-    @Value("${}admin.nom")
+    @Value("${admin.nom}")
     private String adminNom;
-    @Value("${}admin.prenom")
+    @Value("${admin.prenom}")
     private String adminPrenom;
-    @Value("${}admin.prenom2")
+    @Value("${admin.prenom2}")
     private String adminPrenom2;
-    @Value("${}admin.prenom3")
+    @Value("${admin.prenom3}")
     private String adminPrenom3;
-    @Value("${}admin.sexe")
+    @Value("${admin.sexe}")
     private String adminSexe; 
-    @Value("${}admin.code_postal")
+    @Value("${admin.code_postal}")
     private String adminCodePostal; 
-    @Value("${}admin.commune_naiss")
+    @Value("${admin.commune_naiss}")
     private String adminCommuneNaiss; 
-    @Value("${}admin.proche")
+    @Value("${admin.proche}")
     private String adminProche;
-    @Value("${}admin.email_proche")
+    @Value("${admin.email_proche}")
     private String adminEmailProche;
-    @Value("${}admin.proche2")
+    @Value("${admin.proche2}")
     private String adminProche2;
-    @Value("${}admin.email_proche2")
+    @Value("${admin.email_proche2}")
     private String adminEmailProche2;
-    @Value("${}admin.date_naiss")
-    private LocalDate adminDateNaiss;*/
+    @Value("${admin.date_naiss}")
+    private LocalDate adminDateNaiss;
     
 
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -85,7 +85,7 @@ public class UserServiceImpl implements UserService {
             roleRepository.save(roleAdmin);
             roleRepository.save(roleUser);
             roleRepository.save(roleFamille);
-            Utilisateur firstAdmin = new Utilisateur(adminLogin, adminPassword, adminEmail); //, adminTelephone, adminNom, adminPrenom, adminDateNaiss, adminSexe, adminCodePostal, adminCommuneNaiss, adminProche, adminEmailProche);
+            Utilisateur firstAdmin = new Utilisateur(adminLogin, adminPassword, adminEmail, adminTelephone, adminNom, adminPrenom, adminDateNaiss, adminSexe, adminCodePostal, adminCommuneNaiss, adminProche, adminEmailProche);
             // On crypte le mot de passe avant de l'enregistrer
             firstAdmin.setPassword(bCryptPasswordEncoder.encode(firstAdmin.getPassword()));
             firstAdmin.getRoles().add(roleAdmin);

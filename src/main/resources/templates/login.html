@@ -11,7 +11,7 @@
 
 <body>
     <!--comment ça se fait qu'on puisse voir le body alors qu'il faut être authentifié ici ???-->
-<div sec:authorize="isAuthenticated()">
+<!--<div sec:authorize="isAuthenticated()">-->
 
 <div class="container">
     <form method="POST" th:action="@{/login}" action="#" class="form-signin">
@@ -30,7 +30,7 @@
         </div>
     </form>
 </div>
-</div>
+<!--</div>-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>

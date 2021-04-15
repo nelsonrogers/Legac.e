@@ -32,11 +32,14 @@ public class Utilisateur implements UserDetails {
     /*@NonNull // Lombok
     @Email
     private String email;*/
-    
     @NonNull // Lombok
     private String password;
     
-    /*@NonNull
+    @NonNull // Lombok
+    //@Email // Doit avoir la forme d'une adresse email
+    private String email;
+    
+    @NonNull
     private String telephone;
     
     @NonNull
@@ -67,17 +70,16 @@ public class Utilisateur implements UserDetails {
     private String proche;
     
     @NonNull
+    //@Email
     private String emailProche;
     
     @Nullable
     private String proche2;
     
     @Nullable
-    private String emailProche2;*/
+    //@Email
+    private String emailProche2;
    
-    @NonNull // Lombok
-    @Email // Doit avoir la forme d'une adresse email
-    private String email;
 
     @Transient // Non enregistré dans la BD
     private String passwordConfirm;
