@@ -192,8 +192,8 @@
             placeholder="Téléphone*"
             required
           />
-        <div class='form-group' th:classappend="${#fields.hasErrors('passwordConfirm') ? 'has-error' : ''}">
-
+      </p><p>
+            <div class='form-group' th:classappend="${#fields.hasErrors('passwordConfirm') ? 'has-error' : ''}">
         <input
             type="password"
             name="password"
@@ -214,6 +214,7 @@
             placeholder="Confirmation mot de passe*"
             required
         />
+
         <ul><li th:errors="*{username}">Erreur sur le nom</li></ul>
         </div>
         </p>

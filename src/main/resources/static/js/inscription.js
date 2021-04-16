@@ -83,7 +83,7 @@ function renvoi(event) {
   if (
     (event.pageY > 684 && event.pageY < 750) ||
     (event.pageY > 1322 && event.pageY < 1390) ||
-    (event.pageY > 1993 && event.pageY < 2100)
+    (event.pageY > 2103 && event.pageY < 2150)
   ) {
     if (event.pageX > 390 && event.pageX < 634) {
       console.log("renvoi1");
