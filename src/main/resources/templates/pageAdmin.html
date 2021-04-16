@@ -23,9 +23,16 @@
         <a href="#" th:href="@{/h2-console}">Console d'administration de la BD (JDBC URL: jdbc:h2:mem:testdb) - désactivé sur Heroku</a><br>
         <a href="#" th:href="@{/admin/pageAdmin}">Page réservée aux admins</a>
     </div>
-    <form th:action="@{/scan}" method="GET">
+    <form th:action="@{/scan/new}" method="POST">
         <button type="submit">Scan</button>
     </form>
+    <label for="utilDecedes">Utilisateurs décédés : </label>
+    <li name="utilDecedes" th:each="u: ${utilisateurs}">
+        Nom: <em th:text="${u.nom}">Nom de l'utilisateur</em>,
+        Prenom: <em th:text="${u.prenom}">Prenom de l'utilisateur</em>
+        <a th:href="@{delete(id=${u.id})}">Supprimer l'utilisateur n° [[${u.id}]]</a>
+    </li>
+    
 </div>
 <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
 </body>
