@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testament.entity;
-
-import javax.persistence.OneToOne;
+package testament.security;
 
 /**
  *
- * @author bapti
+ * @author nelsonrogers
  */
-public class Infos_Deces {
-    @OneToOne(mappedBy="deces")
-    private Personne personnedecedee;
+public enum Role {
+    FACEBOOK_USER, TWITTER_USER;
 }

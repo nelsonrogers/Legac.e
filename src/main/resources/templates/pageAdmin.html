@@ -23,6 +23,9 @@
         <a href="#" th:href="@{/h2-console}">Console d'administration de la BD (JDBC URL: jdbc:h2:mem:testdb) - désactivé sur Heroku</a><br>
         <a href="#" th:href="@{/admin/pageAdmin}">Page réservée aux admins</a>
     </div>
+    <form th:action="@{/scan}" method="GET">
+        <button type="submit">Scan</button>
+    </form>
 </div>
 <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
 </body>

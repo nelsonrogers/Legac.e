@@ -45,7 +45,7 @@ public class LoginAndRegistrationController {
 
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
-        return "espaceUtilisateur";
+        return "redirect:/welcome";
     }
 
     /*Pourquoi quand on appelle ça dans la page login ça nous renvoie vers la page welcome ??*/
@@ -77,12 +77,12 @@ public class LoginAndRegistrationController {
         return "espaceUtilisateur";
     }*/
     
-    @GetMapping("/")
+    @GetMapping("/esapceUtilisateur")
     public String conecte(Model model) {
         return "espaceUtilisateur";
     }
     
-    @GetMapping("/welcome")
+    @GetMapping({"/","/welcome"})
     public String welcome(Model model) {
         return "welcome";
     }

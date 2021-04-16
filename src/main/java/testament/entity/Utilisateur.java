@@ -30,9 +30,6 @@ public class Utilisateur implements UserDetails {
     @Size(min = 6, max = 32)
     private String username;
     
-    /*@NonNull // Lombok
-    @Email
-    private String email;*/
     @NonNull // Lombok
     private String password;
     
@@ -90,16 +87,10 @@ public class Utilisateur implements UserDetails {
     @Setter(AccessLevel.NONE)
     private List<Role> roles = new LinkedList<>();
     
-    
-    /*
-    @ManyToOne
-    @NonNull
-    private Personne personnes;
-    
-    @OneToOne
-    private Reseau reseauutilisateur;
 
-    */
+    @OneToMany(mappedBy="owner", fetch = FetchType.LAZY)
+    @Setter(AccessLevel.NONE)    
+    private List<SocialConnection> socialConnections = new LinkedList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org" lang="en">
-
+<div sec:authorize="isAnonymous()">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,33 +11,118 @@
 </head>
 <body>
 <!-- Pour les visiteurs non authentifiés -->
-<div sec:authorize="isAnonymous()">
+
     <a th:href="@{/registration}"><button id="creation"/>Créer un <br> compte</button></a>
     <a th:href="@{/login}"><button id="connexion"/>Se <br> connecter</button><a/>
     <p id="p1"><strong>Vous voulez avoir l’esprit libre quant à l’avenir de vos données numériques après votre mort ?</strong></p></br>
     <p id="p2">Legac.e est la plateforme qui permet de sécuriser l’avenir de votre identité numérique : c’est votre héritage numérique.</p>
+</body>
 </div>
 <!-- Pour les utilisateurs authentifiés -->
 <div sec:authorize="isAuthenticated()">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/espaceUtilisateur.css}" href="../static/css/espaceUtilisateur.css" />
 
-    <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
+    <title>Espace utilisateur</title>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+              <a href="#"><img id="logo" src="/logoNavbar.png"></a>
+            </div>
+            <div class="dropdown">
+            <button class="dropbtn">Menu
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+
+            <div class="dropdown-content">
+              <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+              </form>
+              <a onclick="document.forms['logoutForm'].submit()">Déconnexion</a>
+              <a href="#">Page souvenir</a>
+              <a href="#" class="active">Préférences Réseaux</a>
+              <a href="#">Informations Utilisateur</a>
+              </div>
+            </div>
+                
+            <div sec:authorize="hasRole('ROLE_USER')">
+
+            <div class="dropdown-content">
+              <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+              </form>
+              <a onclick="document.forms['logoutForm'].submit()">Déconnexion</a>
+              <a href="#">Page souvenir</a>
+              <a href="#" class="active">Préférences Réseaux</a>
+              <a href="#">Informations Utilisateur</a>
+              </div>
+            </div>
+                
+            <div sec:authorize="hasRole('ROLE_FAMILLE')">
+
+            <div class="dropdown-content">
+              <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+              </form>
+              <a onclick="document.forms['logoutForm'].submit()">Déconnexion</a>
+              <a href="#">Page souvenir</a>
+              <a href="#" class="active">Préférences Réseaux</a>
+              </div>
+            </div>
+            
+            </div>
+        </div>
+      </nav>
+    </head>
+  <body>
+      
+        <h1>Bienvenue dans l’espace utilisateur de Legac.e</h1>
+        <!-- Malgré le passage par la page connexion, on n'est pas connecté et cette partie ne s'affiche pas-->
+        <div sec:authorize="isAuthenticated()">
+            <div id="texteAccueil">
+              <p>
+                Retrouvez ici toutes les informations importantes de votre compte dans
+                l’onglet « Informations utilisateur ».
+              </p>
+              <br />
+              <p>
+                Des tutoriels sont mis à votre disposition dans l’onglet « Tutoriels »
+                afin de paramétrer le futur de vos données numériques.
+              </p>
+              <br />
+              <p>
+                Vous pourrez également créer une « Page souvenir » à laquelle vos
+                proches auront accès dans l’onglet du même nom.
+              </p>
+            </div>
+        </div>
+        
+        <a th:href="@{/connect/twitter}"><button>Se Connecter à Twitter</button></a>
+        
+        
+        <!--<div sec:authorize="hasRole('ROLE_ADMIN')">
+            <p>T'es sur un compte admin</p>
+        </div>-->
+        <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    </form>
+        </form>
 
-    <h2>Welcome <span th:text="${#authentication.name}">Untel</span>  | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
-    <!-- Pour les utilisateurs qui ont le rôle 'ROLE_ADMIN' -->
-    <div sec:authorize="hasRole('ROLE_ADMIN')">
-        <h3>Vous êtes administrateur</h3>
-        <a href="#" th:href="@{/h2-console}">Console d'administration de la BD (JDBC URL: jdbc:h2:mem:testdb) - désactivé sur Heroku</a><br>
-        <a href="#" th:href="@{/admin/pageAdmin}">Page réservée aux admins</a>
-    </div>
-    <!-- Pour les utilisateurs qui ont le rôle 'ROLE_USER' -->
-    <div sec:authorize="hasRole('ROLE_USER')">
-        <h3>Vous êtes un simple utilisateur !</h3>
-        <a href="#" th:href="@{/user/pageUser}">Page réservée aux utilisateurs connectés</a>
-    </div>
+        <h2>Welcome <span th:text="${#authentication.name}">Untel</span>  | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+        <!-- Pour les utilisateurs qui ont le rôle 'ROLE_ADMIN' -->
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <h3>Vous êtes administrateur</h3>
+            <a href="#" th:href="@{/h2-console}">Console d'administration de la BD (JDBC URL: jdbc:h2:mem:testdb) - désactivé sur Heroku</a><br>
+            <a href="#" th:href="@{/admin/pageAdmin}">Page réservée aux admins</a>
+        </div>
+        <!-- Pour les utilisateurs qui ont le rôle 'ROLE_USER' -->
+        <div sec:authorize="hasRole('ROLE_USER')">
+            <h3>Vous êtes un simple utilisateur !</h3>
+            <a href="#" th:href="@{/user/pageUser}">Page réservée aux utilisateurs connectés</a>
+        </div>
+  </body>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
-</body>
 </html>

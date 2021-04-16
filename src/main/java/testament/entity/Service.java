@@ -43,13 +43,6 @@ public class Service {
     /*public boolean isReccurrent(){
         
     }*/
-    /*
-    @ManyToOne
-    @NonNull
-    private Reseau reseau;
     
-    @ManyToOne
-    @NonNull
-    private Personne personne;
-    */
+    
 }
