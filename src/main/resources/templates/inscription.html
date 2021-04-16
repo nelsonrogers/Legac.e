@@ -17,11 +17,11 @@
       <div id="inscription">
       <p>
         <input type="text" name="nom" id="nom" placeholder="NOM COMPLET*" required />
-        <input type="date" name="dateNaiss" id="dateNaiss" required/>
+        <input type="date" name="dateNaiss" th:field="*{dateNaiss}" id="dateNaiss" required/>
         <select id="sexe" th:field="*{sexe}" name="sexe">
           <option value="" disabled selected hidden>SEXE*</option>
-          <option value="homme">Homme</option>
-          <option value="femme">Femme</option>
+          <option th:value="'1'" th:text="Homme"></option>
+          <option th:value="'2'" th:text="Femme"></option>
         </select>
       </p>
       <p>
@@ -42,7 +42,7 @@
           name="codePostal"
           id="lieuNaiss"
           th:field="*{codePostal}"
-          placeholder="CODE POSTAL DE NAISSANCE*"
+          placeholder="CODE POSTAL*"
         />
         <input
           type="button"
@@ -50,7 +50,8 @@
           id="recherche"
           value="Rechercher"
         />
-        <select id="commune"><option value="" name="lieuNaiss" disabled selected hidden>COMMUNE DE NAISSANCE*</option>
+        <select id="commune" name="communeNaiss" th:field="*{communeNaiss}" required>
+            <option value="" disabled selected hidden>COMMUNE DE NAISSANCE*</option>
         </select>
       </p>
       <p>

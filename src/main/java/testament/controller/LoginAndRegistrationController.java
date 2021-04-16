@@ -30,7 +30,7 @@ public class LoginAndRegistrationController {
     @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new Utilisateur());
-
+        System.out.println("salut");
         return "inscription";
     }
 
@@ -41,12 +41,11 @@ public class LoginAndRegistrationController {
         if (bindingResult.hasErrors()) {
             return "inscription";
         }
-
         userService.save(userForm);
 
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
-        return "redirect:/welcome";
+        return "espaceUtilisateur";
     }
 
     /*Pourquoi quand on appelle ça dans la page login ça nous renvoie vers la page welcome ??*/
@@ -58,11 +57,11 @@ public class LoginAndRegistrationController {
         if (logout != null)
             model.addAttribute("message", "Vous avez été déconnecté.");
 
-        return "login";
+        return "connexion";
     }
     
-    /*
-    @PostMapping("/espaceUtilisateur")
+    
+    /*@PostMapping("/espaceUtilisateur")
     public String accueil(@Valid @ModelAttribute("userForm") Utilisateur userForm, Model model, String error, String logout) {
         
         if (error != null)
@@ -77,15 +76,20 @@ public class LoginAndRegistrationController {
 
         return "espaceUtilisateur";
     }*/
-
-    @GetMapping({"/", "/welcome"})
+    
+    @GetMapping("/")
+    public String conecte(Model model) {
+        return "espaceUtilisateur";
+    }
+    
+    @GetMapping("/welcome")
     public String welcome(Model model) {
         return "welcome";
     }
-    @GetMapping("/inscription")
+    /*@GetMapping("/inscription")
     public String inscription(Model model) {
         return "connexion";
-    }
+    }*/
     
     /*
     @GetMapping("/connexion")

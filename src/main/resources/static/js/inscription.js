@@ -19,7 +19,7 @@ function listeCommunes() {
       let communes = dataJSON;
       let texteHTML = "";
       for (let c of communes) {
-        texteHTML += `<option>${c.nom}</option>`;
+        texteHTML += `<option th:value"${c.nom}">${c.nom}</option>`;
       }
       document.getElementById("commune").innerHTML = texteHTML;
     })

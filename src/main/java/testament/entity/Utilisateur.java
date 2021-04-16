@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
 @Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
@@ -36,7 +37,7 @@ public class Utilisateur implements UserDetails {
     private String password;
     
     @NonNull // Lombok
-    //@Email // Doit avoir la forme d'une adresse email
+    @Email // Doit avoir la forme d'une adresse email
     private String email;
     
     @NonNull
@@ -55,6 +56,7 @@ public class Utilisateur implements UserDetails {
     private String prenom3;
     
     @NonNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateNaiss;
     
     @NonNull
@@ -70,14 +72,14 @@ public class Utilisateur implements UserDetails {
     private String proche;
     
     @NonNull
-    //@Email
+    @Email
     private String emailProche;
     
     @Nullable
     private String proche2;
     
     @Nullable
-    //@Email
+    @Email
     private String emailProche2;
    
 

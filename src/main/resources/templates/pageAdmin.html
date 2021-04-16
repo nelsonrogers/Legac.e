@@ -18,6 +18,11 @@
         <a href="pageUser.html" th:href="@{/user/pageUser}">page accessible aux utilisateurs</a>
     </div>
     <a href="welcome.html" th:href="@{/}">Back to Home Page</a>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <h3>Vous êtes administrateur</h3>
+        <a href="#" th:href="@{/h2-console}">Console d'administration de la BD (JDBC URL: jdbc:h2:mem:testdb) - désactivé sur Heroku</a><br>
+        <a href="#" th:href="@{/admin/pageAdmin}">Page réservée aux admins</a>
+    </div>
 </div>
 <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
 </body>

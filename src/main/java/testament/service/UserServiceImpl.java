@@ -7,6 +7,7 @@ import testament.dao.UserRepository;
 import testament.entity.Role;
 import testament.entity.Utilisateur;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import testament.entity.Personne;
@@ -31,6 +32,9 @@ public class UserServiceImpl implements UserService {
     private String adminNom;
     @Value("${admin.prenom}")
     private String adminPrenom;
+    @Value("${admin.date_naiss}")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate adminDateNaiss;
     @Value("${admin.prenom2}")
     private String adminPrenom2;
     @Value("${admin.prenom3}")
@@ -49,10 +53,8 @@ public class UserServiceImpl implements UserService {
     private String adminProche2;
     @Value("${admin.email_proche2}")
     private String adminEmailProche2;
-    @Value("${admin.date_naiss}")
-    private LocalDate adminDateNaiss;
     
-
+    
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
