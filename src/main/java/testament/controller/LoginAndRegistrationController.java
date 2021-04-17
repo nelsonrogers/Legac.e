@@ -163,7 +163,7 @@ public class LoginAndRegistrationController {
 
         //ResourceUtils.getFile("classpath:android.png");
 
-        helper.addAttachment("Testament.pdf", new ClassPathResource("Testament.pdf"));
+        helper.addAttachment("Modèle de testament", new ClassPathResource("Testament.pdf"));
 
         javaMailSender.send(msg);
 
