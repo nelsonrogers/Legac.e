@@ -57,13 +57,17 @@ public class emailController {
         MimeMessageHelper helper = new MimeMessageHelper(msg, true);
         helper.setTo("lucasabitbol6@gmail.com");
 
-        helper.setSubject("J'envoie ce mail depuis Java");
+        helper.setSubject("Modèle de testament");
 
         // default = text/plain
         //helper.setText("Check attachment for image!");
 
         // true = text/html
-        helper.setText("<h1>Ca fonctionne ?</h1>", true);
+        helper.setText("Cher utilisateur,\n\n" +
+                "En vous inscrivant sur Legac.e.com, vous avez souhaité recevoir un modèle de testament écrit. Vous pouvez le retrouver en pièce jointe de ce mail. \n\n" +
+                "N’oubliez pas que vous devez inscrire sur votre testament, de manière claire, que Legac.e est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.\n\n" +
+                "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
+                "L’équipe Legac.e\n", true);
 
         //FileSystemResource file = new FileSystemResource(new File("classpath:android.png"));
 
@@ -72,7 +76,7 @@ public class emailController {
 
         //ResourceUtils.getFile("classpath:android.png");
 
-        helper.addAttachment("my_photo.png", new ClassPathResource("android.png"));
+        helper.addAttachment("Testament.pdf", new ClassPathResource("android.png"));
 
         javaMailSender.send(msg);
         return "espaceUtilisateur";

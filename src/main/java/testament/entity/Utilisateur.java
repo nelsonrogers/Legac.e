@@ -78,6 +78,8 @@ public class Utilisateur implements UserDetails {
     @Nullable
     @Email
     private String emailProche2;
+
+    private boolean testament;
    
 
     @Transient // Non enregistré dans la BD

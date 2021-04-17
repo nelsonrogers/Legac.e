@@ -1,6 +1,8 @@
 package testament.controller;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import testament.entity.Utilisateur;
 import testament.service.SecurityService;
 import testament.service.UserService;
@@ -15,7 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 
 
-
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.validation.Valid;
 
 @Controller
@@ -43,7 +46,7 @@ public class LoginAndRegistrationController {
     }
 
     @PostMapping("/registration")
-    public String registration(@Valid @ModelAttribute("userForm") Utilisateur userForm, BindingResult bindingResult) {
+    public String registration(@Valid @ModelAttribute("userForm") Utilisateur userForm, BindingResult bindingResult) throws MessagingException {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
@@ -56,6 +59,11 @@ public class LoginAndRegistrationController {
         String email = userForm.getEmail();
 
         envoiMail(email);
+        System.out.println(userForm.isTestament());
+        if (userForm.isTestament()) {
+            envoiTestament(email);
+        }
+
         return "redirect:/welcome";
 
     }
@@ -114,7 +122,7 @@ public class LoginAndRegistrationController {
 
         return "espaceUtilisateur";
     }*/
-    public String envoiMail(String email) {
+    public void envoiMail(String email) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(email, email);
 
@@ -126,6 +134,39 @@ public class LoginAndRegistrationController {
                 "L’équipe Legac.e \n");
 
         javaMailSender.send(msg);
-        return "espaceUtilisateur";
     }
+
+    public void envoiTestament(String email) throws MessagingException {
+
+        MimeMessage msg = javaMailSender.createMimeMessage();
+
+        // true = multipart message
+        MimeMessageHelper helper = new MimeMessageHelper(msg, true);
+        helper.setTo(email);
+
+        helper.setSubject("Modèle de testament");
+
+        // default = text/plain
+        //helper.setText("Check attachment for image!");
+
+        // true = text/html
+        helper.setText("Cher utilisateur,\n\n" +
+                "En vous inscrivant sur Legac.e.com, vous avez souhaité recevoir un modèle de testament écrit. Vous pouvez le retrouver en pièce jointe de ce mail. \n\n" +
+                "N’oubliez pas que vous devez inscrire sur votre testament, de manière claire, que Legac.e est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.\n\n" +
+                "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
+                "L’équipe Legac.e\n", true);
+
+        //FileSystemResource file = new FileSystemResource(new File("classpath:android.png"));
+
+        //Resource resource = new ClassPathResource("android.png");
+        //InputStream input = resource.getInputStream();
+
+        //ResourceUtils.getFile("classpath:android.png");
+
+        helper.addAttachment("Testament.pdf", new ClassPathResource("Testament.pdf"));
+
+        javaMailSender.send(msg);
+
+    }
+
 }
