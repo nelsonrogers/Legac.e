@@ -20,4 +20,5 @@ public class AdminController {
         log.info("L'administrateur id: {}, email: {} accède à sa page", user.getId(), user.getEmail());
         return "pageAdmin"; // On affiche la vue 'pageAdmin.html'
     }
+    
 }

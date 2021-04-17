@@ -34,24 +34,13 @@ public class UserServiceImpl implements UserService {
     @Value("${admin.date_naiss}")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate adminDateNaiss;
-    @Value("${admin.prenom2}")
-    private String adminPrenom2;
-    @Value("${admin.prenom3}")
-    private String adminPrenom3;
     @Value("${admin.sexe}")
     private String adminSexe; 
     @Value("${admin.code_postal}")
     private String adminCodePostal; 
     @Value("${admin.commune_naiss}")
     private String adminCommuneNaiss; 
-    @Value("${admin.proche}")
-    private String adminProche;
-    @Value("${admin.email_proche}")
-    private String adminEmailProche;
-    @Value("${admin.proche2}")
-    private String adminProche2;
-    @Value("${admin.email_proche2}")
-    private String adminEmailProche2;
+
     
     
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -86,7 +75,7 @@ public class UserServiceImpl implements UserService {
             roleRepository.save(roleAdmin);
             roleRepository.save(roleUser);
             roleRepository.save(roleFamille);
-            Utilisateur firstAdmin = new Utilisateur(adminLogin, adminPassword, adminEmail, adminTelephone, adminNom, adminPrenom, adminDateNaiss, adminSexe, adminCodePostal, adminCommuneNaiss, adminProche, adminEmailProche);
+            Utilisateur firstAdmin = new Utilisateur(adminLogin, adminPassword, adminEmail, adminTelephone, adminNom, adminPrenom, adminDateNaiss, adminSexe, adminCodePostal, adminCommuneNaiss);
             // On crypte le mot de passe avant de l'enregistrer
             firstAdmin.setPassword(bCryptPasswordEncoder.encode(firstAdmin.getPassword()));
             firstAdmin.getRoles().add(roleAdmin);

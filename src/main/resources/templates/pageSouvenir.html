@@ -4,33 +4,61 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="pageSouvenir.css" />
+            <link rel="stylesheet" type="text/css" th:href="@{/css/pageSouvenir.css}" href="../static/css/pageSouvenir.css" />
         <title>Page souvenir</title>
         <div class="navbar">
-          <img src="images/Logo.png" />
-
-          <a id="tuto" href="legace/utilisateur" class="tutorielsU" target="_blank">Tutoriels</a>
-          <a id="souvenir" href="legace/famille" class="souvenirsU" target="_blank">Page souvenir</a>
-          <a id="infos" href="legace/compte" class="informationU" target="_blank">Informations utilisateur</a>
+            <a href="#" th:href="@{/welcome}"><img src="/Logo.png" /></a>
+            
+            <a id="souvenir" href="#" th:href="@{/user/preferencesReseaux}" class="souvenirsU" target="_blank">Préférences Réseaux</a>
+            <a id="tuto" href="#" th:href="@{/user/pageSouvenir}" class="tutorielsU" target="_blank">Page Souvenir</a>
+            <a id="infos" href="#" th:href="@{/user/informationsUtilisateur}" class="informationU" target="_blank">Informations Utilisateur</a>
         </div>
   </head>
   <body>
-        <h1>Creéz une page souvenir à laquelle vos proches pourront accéder</h1>
+      
+        <div sec:authorize="hasRole('ROLE_USER')">
+            <h1>Creéz une page souvenir à laquelle vos proches pourront accéder</h1>
 
-        <p id="p1">Vous pouvez insérer des images, des vidéos ou des textes de votre choix auxquels vos proches auront accès une fois que ce compte leur sera ouvert.</p>
-        <br><br>
-        <div id="ajouteFichiers">
-        <label id="label-file" for="joindre">JOINDRE UN FICHIER</label><br> <br>
-        <input type="file" id="joindre" name="joindre">
-        <p>Vos fichiers déjà insérés : </p>
-        <div id="fichiers">Fichiers ajoutés apparaitront ici <br><a href="">Fichier1</a></div>
+            <p id="p1">Vous pouvez insérer des images, des vidéos ou des textes de votre choix auxquels vos proches auront accès une fois que ce compte leur sera ouvert.</p>
+            <br><br>
+            <div id="ajouteFichiers">
+                <label id="label-file" for="joindre">JOINDRE UN FICHIER</label><br> <br>
+                <input type="file" id="joindre" name="joindre">
+                <p>Vos fichiers déjà insérés : </p>
+                <div id="fichiers">
+                    Fichiers ajoutés apparaitront ici <br><a href="">Fichier1</a>
+                </div>
+            </div>
+            <div id="zoneTexte">
+                <p>Écrivez un texte à vos proches : </p>
+                <textarea name="texte" id="texte" cols="30" rows="20"></textarea>
+            </div>
         </div>
-        <div id="zoneTexte">
-        <p>Écrivez un texte à vos proches : </p>
-        <textarea name="texte" id="texte" cols="30" rows="20"></textarea>
+        <div sec:authorize="hasRole('ROLE_FAMILLE')">
+            <h1>Bienvenue dans la page souvenir</h1>
+
+            <p id="p1">Vous trouverez ici les documents que votre proche vous a laissé. Vous pouvez les consulter et les télécharger.</p>
+            <br><br>
+            <div id="telechargeFichiers">
+                <p>Fichiers à télécharger : </p>
+                <div id="fichiers">Fichiers ajoutés apparaitront ici<br><a href="">Salut</a></div>
+
+            </div>
+            <div id="zoneTexte">
+                <p>Le message de votre proche : </p>
+                <div>
+                    <img id="guillemets" src="images/guillemets.png" height="80" width="80">
+                    <br><br>
+                    <p id="texte">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Fusce aliquet, magna eu pharetra placerat, erat magna porta ligula, non euismod ipsum lacus eu enim.
+                        Cras lacus ligula, mollis lacinia diam vitae, congue consequat urna. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                        Duis mattis vitae mauris in interdum. Cras augue turpis, pretium at lacinia placerat, efficitur euismod mauris. Phasellus quis vehicula sem.
+                        Ut a tortor ac nunc maximus tincidunt a in justo. Sed consectetur vulputate enim ut blandit.
+                    </p>
+                </div>
+            </div>
         </div>
-
-
-
-  </body>
+        
+    </body>
 </html>

@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : 12 Apr 2021, 09:49:09
     Author     : nelsonrogers
 */
-
+/*
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
 
@@ -465,4 +465,358 @@ input[type="checkbox"] {
 .form-group {
     display: inline-block;
 }
+*/
 
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+.navbar {
+  overflow: hidden;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: black;
+}
+
+.navbar img {
+  height: auto;
+  width: 178px;
+  border: none;
+  position: absolute;
+  margin-right: 200px;
+}
+
+#titrenavbar {
+  color: white;
+  font-size: 2em;
+  font-family: "Nunito Sans";
+  margin-left: 200px;
+}
+
+body {
+  font-family: "Nunito";
+  background-repeat: no-repeat;
+  background-image: url(images/BG1.png);
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+#Souspage1 {
+  font-family: "Nunito Sans";
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 792px;
+  margin-bottom: 40px;
+  font-size: 1.8em;
+}
+
+#Souspage3 {
+  font-family: "Nunito Sans";
+  margin: auto;
+  width: 792px;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+::placeholder {
+  color: grey;
+  font-size: 1.5em;
+  font-family: "Nunito";
+}
+
+select {
+  font-family: "Nunito";
+}
+
+#inscription {
+  margin: auto;
+  position: relative;
+  top: -20px;
+  width: 792px;
+}
+
+#nom {
+  border-color: black;
+  position: relative;
+  height: 40px;
+  width: 380px;
+  border-width: 2px;
+}
+
+#dateNaiss {
+  border-color: black;
+  position: relative;
+  left: 20px;
+  font-size: 1.5em;
+  color: grey;
+  height: 40px;
+  width: 180px;
+  border-width: 2px;
+}
+
+#sexe {
+  border-color: black;
+  position: relative;
+  font-size: 1.3em;
+  color: grey;
+  left: 40px;
+  height: 44px;
+  width: 170px;
+  border-width: 2px;
+}
+
+#prenom1 {
+  top: 7px;
+  position: relative;
+  border-color: black;
+  height: 40px;
+  width: 240px;
+  border-width: 2px;
+}
+
+#prenom2 {
+  border-color: black;
+  position: relative;
+  top: 7px;
+  left: 20px;
+  height: 40px;
+  width: 240px;
+  border-width: 2px;
+}
+
+#prenom3 {
+  border-color: black;
+  position: relative;
+  top: 7px;
+  left: 40px;
+  height: 40px;
+  width: 240px;
+  border-width: 2px;
+}
+
+#commNaiss {
+  border-color: black;
+  position: relative;
+  top: 15px;
+  height: 40px;
+  width: 400px;
+  border-width: 2px;
+}
+
+#lieuNaiss {
+  border-color: black;
+  position: relative;
+  top: 15px;
+  left: 20px;
+  height: 40px;
+  width: 352px;
+  border-width: 2px;
+}
+
+#nomf {
+  border-color: black;
+  position: relative;
+  top: 24px;
+  height: 40px;
+  width: 376px;
+  border-width: 2px;
+}
+
+#nomf2 {
+  border-color: black;
+  position: relative;
+  top: 24px;
+  left: 20px;
+  height: 40px;
+  width: 376px;
+  border-width: 2px;
+}
+
+#mailf {
+  border-color: black;
+  position: relative;
+  top: 27px;
+  height: 40px;
+  width: 376px;
+  border-width: 2px;
+}
+
+#mailf2 {
+  border-color: black;
+  position: relative;
+  top: 27px;
+  left: 20px;
+  height: 40px;
+  width: 376px;
+  border-width: 2px;
+}
+
+#label-file {
+  cursor: pointer;
+  position: relative;
+  top: 37px;
+  height: 40px;
+  border: solid;
+  border-color: black;
+  border-width: 2px;
+  padding: 5px;
+  padding-left: 72px;
+  padding-right: 72px;
+  color: grey;
+  font-size: 1.3em;
+  font-family: "Nunito";
+}
+
+#cni {
+  display: none;
+}
+
+#verif {
+  position: absolute;
+  top: 700px;
+}
+
+#username {
+  border-color: black;
+  top: 15px;
+  height: 40px;
+  width: 240px;
+  border-width: 2px;
+}
+
+#email {
+  border-color: black;
+  position: relative;
+  left: 20px;
+  height: 40px;
+  width: 280px;
+  border-width: 2px;
+}
+
+#tel {
+  border-color: black;
+  position: relative;
+  left: 40px;
+  height: 40px;
+  width: 200px;
+  border-width: 2px;
+}
+
+#mdp {
+  border-color: black;
+  top: 15px;
+  height: 40px;
+  width: 280px;
+  border-width: 2px;
+}
+
+#mdp2 {
+  border-color: black;
+  position: relative;
+  left: 20px;
+  height: 40px;
+  width: 280px;
+  border-width: 2px;
+}
+
+#phrase0,
+#phrase1,
+#phrase2 {
+  text-indent: 30px;
+  top: 200px;
+  margin: auto;
+  width: 792px;
+  text-align: justify;
+  font-size: 1.2em;
+  font-family: "Nunito";
+}
+
+#phrase0 {
+  margin-top: 30px;
+}
+
+#phrase1 {
+  margin-top: 20px;
+}
+
+#phrase2 {
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+#testamentecrit {
+  position: relative;
+  top: 0px;
+  color: black;
+  font-size: 1.4em;
+  border: solid;
+  border-width: 2px;
+  padding-left: 5px;
+}
+
+#ctestamentecrit {
+  margin: 1px;
+  position: absolute;
+  margin-left: 753px;
+}
+
+#cgu {
+  text-decoration-color: black;
+  color: black;
+}
+
+#valider {
+  background-color: black;
+  float: right;
+  position: relative;
+  margin-bottom: 30px;
+  border: none;
+  width: 160px;
+  color: white;
+  font-family: "Nunito Sans";
+  font-size: 1.8em;
+}
+
+#renvoi1 {
+  position: absolute;
+  top: 0px;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+}
+
+[type="checkbox"]:not(:checked) {
+  float: right;
+  content: "";
+  width: 2.2em;
+  height: 2.2em;
+  border: 2px solid black;
+  margin-top: 20px;
+  background: white;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.275s;
+}
+
+:checked {
+  background-color: black;
+  margin-top: 20px;
+  float: right;
+  width: 2.2em;
+  height: 2.2em;
+}

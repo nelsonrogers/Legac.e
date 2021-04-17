@@ -5,81 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/inscription.css}" href="../static/css/inscription.css" />
-    <link rel="icon" type="image/png" href="Logo.png" />
+    <link rel="icon" type="image/png" href="/Logo.png" />
     <title>Création d'un compte</title>
     <div class="navbar">
-        <a href="#" th:href="@{/welcome}"><img src="/logoNavbar.png"></a>
+        <a href="#" th:href="@{/welcome}"><img src="/logoNavbar.png" /></a>
+      <p id="titrenavbar">Inscription</p>
     </div>
-    </head>
+  </head>
   <body>
-    <h1 id="Souspage1">Merci de renseigner les champs suivants : (* obligatoire)</h1>
+    <h1 id="Souspage1">
+      Merci de renseigner les champs suivants : (* obligatoire)
+    </h1>
     <form th:action="@{/registration}" th:object="${userForm}" method="POST">
       <div id="inscription">
-      <p>
-        <input type="text" name="nom" id="nom" placeholder="NOM COMPLET*" required />
-        <input type="date" name="dateNaiss" th:field="*{dateNaiss}" id="dateNaiss" required/>
-        <select id="sexe" th:field="*{sexe}" name="sexe">
-          <option value="" disabled selected hidden>SEXE*</option>
-          <option th:value="'1'" th:text="Homme"></option>
-          <option th:value="'2'" th:text="Femme"></option>
-        </select>
-      </p>
-      <p>
-        <input
-          type="text"
-          name="prenom1"
-          id="prenom1"
-          th:field="*{prenom}"
-          placeholder="PRÉNOM*"
-          required
-        />
-        <input type="text" name="prenom2" id="prenom2" th:field="*{prenom2}" placeholder="PRÉNOM 2" />
-        <input type="text" name="prenom3" id="prenom3" th:field="*{prenom3}" placeholder="PRÉNOM 3" />
-      </p>
-      <p>
-        <input
-          type="text"
-          name="codePostal"
-          id="lieuNaiss"
-          th:field="*{codePostal}"
-          placeholder="CODE POSTAL*"
-        />
-        <input
-          type="button"
-          name="recherche"
-          id="recherche"
-          value="Rechercher"
-        />
-        <select id="commune" name="communeNaiss" th:field="*{communeNaiss}" required>
-            <option value="" disabled selected hidden>COMMUNE DE NAISSANCE*</option>
-        </select>
-      </p>
-      <p>
-        <input
+        <p>
+          <input
+            type="text"
+            name="nom"
+            id="nom"
+            th:field="*{nom}"
+            placeholder="NOM COMPLET*"
+            required
+          />
+          <input type="date" name="dateNaiss" th:field="*{dateNaiss}" id="dateNaiss" required />
+          <select id="sexe" th:field="*{sexe}" name="sexe">
+            <option value="" disabled selected hidden>SEXE*</option>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+          </select>
+        </p>
+        <p>
+          <input
+            type="text"
+            name="prenom1"
+            id="prenom1"
+            th:field="*{prenom}"
+            placeholder="PRÉNOM 1*"
+            required
+          />
+          <input
+            type="text"
+            name="prenom2"
+            id="prenom2"
+            th:field="*{prenom2}"
+            placeholder="PRÉNOM 2"
+          />
+          <input
+            type="text"
+            name="prenom3"
+            id="prenom3"
+            th:field="*{prenom3}"
+            placeholder="PRÉNOM 3"
+          />
+        </p>
+        <p>
+          <input
+            type="text"
+            name="commNaiss"
+            id="commNaiss"
+            th:field="*{communeNaiss}"
+            placeholder="NOM DE LA COMMUNE DE NAISSANCE*"
+          />
+          <input
+            type="text"
+            name="lieuNaiss"
+            id="lieuNaiss"
+            th:field="*{codePostal}"
+            placeholder="CODE COMMUNE CORRESPONDANT*"
+          />
+        </p>
+        <p>
+          <input
             type="text"
             name="nomf"
             id="nomf"
             th:field="*{proche}"
-            placeholder="PERSONNE À CONTACTER*"
-            required
+            placeholder="PERSONNE À CONTACTER"
           />
-        <input
-          type="text"
-          name="nomf2"
-          id="nomf2"
-          th:field="*{proche2}"
-          placeholder="PERSONNE À CONTACTER N°2"
-        />
-        </p>
-      <p>
           <input
-              type="email"
-              name="mailf"
-              id="mailf"
-              th:field="*{emailProche}"
-              placeholder="ADRESSE E-MAIL DE LA FAMILLE*"
-              required
-            />
+            type="text"
+            name="nomf2"
+            id="nomf2"
+            th:field="*{proche2}"
+            placeholder="PERSONNE À CONTACTER N°2"
+          />
+        </p>
+        <p>
+          <input
+            type="email"
+            name="mailf"
+            id="mailf"
+            th:field="*{emailProche}"
+            placeholder="ADRESSE E-MAIL DE LA FAMILLE"
+          />
           <input
             type="email"
             name="mailf2"
@@ -87,160 +105,94 @@
             th:field="*{emailProche2}"
             placeholder="ADRESSE E-MAIL DE LA FAMILLE N°2"
           />
-          </p>
-          <p>
-          <label id="label-file" for="cni">JOINDRE UNE COPIE DE VOTRE CARTE D'IDENTITÉ RECTO-VERSO*
-            </label>
-          <input type="file" id="cni" name="cni" accept="image/*,.pdf">
-    </p>
-    </div>
-    <img id="p1" src="/progression1.jpeg">
-  <h1 id="Souspage2">Merci de sélectionner les applications que vous utilisez : </h1>
-  <div id="reseaux">
-  <div class="res">
-    <img id="logopaypal" src="/paypal.png"></img>
-    <label id="paypal"> J'utilise cette application</label>
-    <input type="checkbox" id="cpaypal" onclick="showtext()">
-    <br>
-    <select id="spaypal" style="display:none">
-      <option value="" disabled selected hidden>Sélectionnez votre option</option>
-      <option value="formulaire">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</option>
-    </select>
-  </div>
-  <div class="res">
-      <img  src="/pinterest.jpeg"></img>
-      <label id="pinterest"> J'utilise cette application</label>
-      <input type="checkbox" id="cpinterest" onclick="showtext()">
-      <br>
-      <select id="spinterest" style="display:none">
-        <option value="" disabled selected hidden>Sélectionnez votre option</option>
-      <option value="formulaire">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</option>
-    </select>
-    </div>
-    <div class="res">
-      <img  src="/facebook.png"></img>
-      <label id="facebook"> J'utilise cette application</label>
-      <input type="checkbox" id="cfacebook" onclick="showtext()">
-      <br>
-      <select id="sfacebook" style="display:none">
-        <option value="" disabled selected hidden>Sélectionnez votre option</option>
-        <option value="commemoration">Je souhaite avoir accès à la procédure pour transformer mon compte en compte de commémoration</option>
-        <option value="fermer">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</option>
-      </select>
-    </div>
-    <div class="res">
-      <img  src="/twitter.png"></img>
-      <label id="twitter"> J'utilise cette application</label>
-      <input type="checkbox" id="ctwitter" onclick="showtext()">
-      <br>
-      <input type="text" name="pseudoTwitter" placeholder="Nom d'utilisateur (sans le @)" id="stwitter" style="display:none">
-    </div>
-    <div class="res">
-      <img  src="/insta.jpeg"></img>
-      <label id="instagram"> J'utilise cette application</label>
-      <input type="checkbox" id="cinstagram" onclick="showtext()">
-      <br>
-      <select id="sinstagram" style="display:none">
-        <option value="" disabled selected hidden>Sélectionnez votre option</option>
-        <option value="commemoration">Je souhaite avoir accès à la procédure pour transformer mon compte en compte de commémoration</option>
-        <option value="fermer">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</option>
-      </select>
-    </div>
-    <div class="res">
-      <img  src="/google.png"></img>
-      <label id="google"> J'utilise cette application</label>
-      <input type="checkbox" id="cgoogle" onclick="showtext()">
-      <br>
-      <select id="sgoogle" style="display:none">
-        <option value="" disabled selected hidden>Sélectionnez votre option</option>
-        <option value="iam">Je souhaite avoir accès à l'Inactive Account Manager</option>
-      </select>
-    </div>
-   <br>
-</div>
-<img id="p2" src="/progression2.jpeg">
-<div id="verif">
-  <h1 id="Souspage3">Merci de vérifier les informations suivantes :</h1>
-    <p id="phrase0">
-      Merci de renseigner une adresse e-Mail valide, votre numéro de téléphone et un mot de passe. Ce dernier sera à conserver précieusement. En cas de changement d'adresse e-mail, merci de le modifier dans votre espace utilisateur.
-    </p>
-      <p>
-        <div class='form-group' th:classappend="${#fields.hasErrors('username') ? 'has-error' : ''}">
-        <input
-          type="texte"
-          name="username"
-          id="username"
-          th:field="*{username}"
-          placeholder="Nom utilisateur*"
-          required
+        </p>
+        <p>
+          <label id="label-file" for="cni"
+            >JOINDRE UNE COPIE DE VOTRE CARTE D'IDENTITÉ RECTO-VERSO*
+          </label>
+          <input type="file" id="cni" name="cni" accept="image/*,.pdf" />
+        </p>
+      </div>
+      <div id="verif">
+        <h1 id="Souspage3">Merci de vérifier les informations suivantes :</h1>
+        <p id="phrase0">
+          Merci de renseigner une adresse e-Mail valide, votre numéro de
+          téléphone et un mot de passe. Ce dernier sera à conserver
+          précieusement. En cas de changement d'adresse e-mail, merci de le
+          modifier dans votre espace utilisateur.
+        </p>
+        <p>
+          <input
+            type="texte"
+            name="username"
+            id="username"
+            th:field="*{username}"
+            placeholder="Nom utilisateur*"
+            required
           />
-        <ul><li th:errors="*{username}">Erreur sur le nom</li></ul>
-        </div>
-        <input
-          type="email"
-          name="username"
-          id="email"
-          th:field="*{email}"
-          placeholder="Adresse E-Mail valide*"
-          required
-        />
-      <input
+          <input
+            type="email"
+            name="email"
+            id="email"
+            th:field="*{email}"
+            placeholder="Adresse E-Mail valide*"
+            required
+          />
+          <input
             type="tel"
-            name="telephone"
+            name="tel"
             id="tel"
             th:field="*{telephone}"
             placeholder="Téléphone*"
             required
           />
-      </p><p>
-            <div class='form-group' th:classappend="${#fields.hasErrors('passwordConfirm') ? 'has-error' : ''}">
-        <input
+        </p>
+        <p>
+          <input
             type="password"
-            name="password"
+            name="mdp"
             id="mdp"
             th:field="*{password}"
             placeholder="Mot de passe*"
             required
-        />
-        <ul><li th:errors="*{username}">Erreur sur le nom</li></ul>
-
-        </div>
-        <div class='form-group' th:classappend="${#fields.hasErrors('passwordConfirm') ? 'has-error' : ''}">
-        <input
+          />
+          <input
             type="password"
             name="passwordConfirm"
             id="mdp2"
             th:field="*{passwordConfirm}"
             placeholder="Confirmation mot de passe*"
             required
-        />
-
-        <ul><li th:errors="*{username}">Erreur sur le nom</li></ul>
-        </div>
+          />
+          <input type="submit" id="valider" value="Valider" />
         </p>
-      <div id="testamentecrit">
-          <label>Voulez-vous recevoir un modèle de testament écrit par mail ?</label>
-          <input type="checkbox" id="ctestamentecrit" th:field="*{testament}">
+        <div id="testamentecrit">
+          <input type="checkbox" th:field="*{testament}" id="ctestamentecrit" />
+          <label
+            >Voulez-vous recevoir un modèle de testament écrit par mail ?</label
+          >
+        </div>
+        <p id="phrase1">
+          En cliquant sur "Valider", vous confirmez votre inscription à nos
+          services et les
+          <a id="cgu" href="legace/legal"> Conditions d'Utilisation</a> de notre
+          outil de testament numérique. Vous confirmez également l'excactitude
+          des informations renseignées précédemment. Nous vous enverrons un mail
+          de confirmation d'inscription.
+        </p>
+        <p id="phrase2">
+          Pour valider légalement votre inscription à ce site, vous devez
+          inscrire sur votre testament, de manière claire, que notre entreprise
+          <i>Legac.e</i> est le tiers de confiance qui se chargera de la gestion
+          de vos données numériques après votre décès.
+        </p>
       </div>
-      <p id="phrase1">
-      En cliquant sur "Valider", vous confirmez votre inscription à nos services et les <a id="cgu" href="legace/legal"> Conditions d'Utilisation</a> de notre outil de testament numérique. Vous confirmez également l'excactitude des informations renseignées précédemment. Nous vous enverrons un mail de confirmation d'inscription avec votre identifiant.
-      </p>
-      <p id="phrase2">
-      Pour valider légalement votre inscription à ce site, vous devez inscrire sur votre testament, de manière claire, que notre entreprise <i>Legac.e</i> est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.
-      </p>
-      <input type="submit" id="valider" value="Valider">
-    </div>
-    <img id="p3" src="/progression3.jpeg">
     </form>
     <a id="renvoi1" href="#etatcivil"></a>
     <a id="renvoi2" href="#reseauxconcernes"></a>
     <a id="renvoi3" href="#verification"></a>
     <script th:src="@{/js/inscription.js}" src="../static/js/inscription.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
-    </body>
+  </body>
 </html>
-
-
 
 

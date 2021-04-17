@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Informations Utilisateur</title>
+    <nav class="nav">
+      <div class="container">
+          <div class="logo">
+              <a href="#"><img src="/logoNavbar.png"></a>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Menu
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <form id="logoutForm" method="POST" th:action="@{/logout}" action="#">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </form>
+                <a onclick="document.forms['logoutForm'].submit()">Déconnexion</a>
+                <a href="#" th:href="@{/user/pageSouvenir}">Page souvenir</a>
+                <a href="#" th:href="@{/user/preferencesResaux}" class="active">Préférences Réseaux</a>
+                <a href="#" th:href="@{/user/informationsUtilisateurs}">Informations Utilisateur</a>
+            </div>
+          </div>
+      </nav>
+  </head>
+  <body>
+    <h1>Retrouvez vos informations personnelles ici</h1>
+    <p id="p1">
+      Vous pouvez ici retrouver vos informations personnelles :
+    </p>
+    <a class="renvoi" href=""><img src="images/loupe.png"></a>
+    <p id="p2">
+      Vous pouvez ici accéder à votre formulaire d'inscription pour modifier vos informations personnelles :
+    </p>
+    <a class="renvoi" href=""><img src="images/formulaire.png"></a>
+  </body>
+</html>

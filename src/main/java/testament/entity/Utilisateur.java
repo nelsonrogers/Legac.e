@@ -65,10 +65,10 @@ public class Utilisateur implements UserDetails {
     @NonNull
     private String communeNaiss;
     
-    @NonNull
+    @Nullable
     private String proche;
     
-    @NonNull
+    @Nullable
     @Email
     private String emailProche;
     

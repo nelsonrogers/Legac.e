@@ -21,4 +21,20 @@ public class UserController {
         log.info("L'utilisateur id: {}, email: {} accède à sa page", user.getId(), user.getEmail());
         return "pageUser"; // On affiche la vue 'pageUser.html'
     }
+    
+    @GetMapping(path = "pageSouvenir")
+    public String souvenir(@AuthenticationPrincipal Utilisateur user, Model model) {
+        return "pageSouvenir";
+    }
+    
+    @GetMapping(path = "preferencesReseaux")
+    public String preferenceReseaux(@AuthenticationPrincipal Utilisateur user, Model model) {
+        return "preferencesReseaux";
+    }
+    
+    @GetMapping(path = "informationUtilisateur")
+    public String informationsUtilisateur(@AuthenticationPrincipal Utilisateur user, Model model) {
+        return "informationsUtilisateur";
+    }
+    
 }
