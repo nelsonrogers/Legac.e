@@ -119,10 +119,10 @@ public class LoginAndRegistrationController {
         msg.setTo(email, email);
 
         msg.setSubject("Bienvenue sur Legac.e");
-        msg.setText("Cher utilisateur,\n" +
-                "Merci de faire confiance à Legac.e pour gérer vos données numériques quand vous ne serez plus là. \n" +
-                "Vous pouvez maintenant vous connecter en tant qu’utilisateur sur www.legac.e.com afin d’accéder à vos informations personnelles, vos volontés et la configuration de votre page souvenir.\n" +
-                "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n" +
+        msg.setText("Cher utilisateur,\n\n" +
+                "Merci de faire confiance à Legac.e pour gérer vos données numériques quand vous ne serez plus là. \n\n " +
+                "Vous pouvez maintenant vous connecter en tant qu’utilisateur sur www.legac.e.com afin d’accéder à vos informations personnelles, vos volontés et la configuration de votre page souvenir.\n\n" +
+                "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
                 "L’équipe Legac.e \n");
 
         javaMailSender.send(msg);
