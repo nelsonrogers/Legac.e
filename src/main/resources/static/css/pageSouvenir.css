@@ -1,52 +1,117 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
 
-.navbar {
-  overflow: hidden;
+
+/* Navbar section */
+.nav {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito";
+  font-size: 10px;
+  width: 100%;
   height: 100px;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
+  top: 0px;
+  text-align: center;
   background-color: black;
 }
 
-.navbar a {
-  font-family: "Nunito";
-  min-width: 300px;
+.dropdown .dropbtn {
+  display: none;
+}
+
+.dropdown-content a {
+  cursor: pointer;
   float: right;
+  background-color: black;
+  margin-left: 20px;
+  margin-right: 20px;
   color: white;
-  text-align: center;
-  padding: 30px 16px;
+  padding: 32px 16px;
+  font-family: "Nunito";
+  font-size: 25px;
   text-decoration: none;
-  font-size: 35px;
+  display: inline-flex;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  font-family: "Nunito Sans";
+}
+
+#logo {
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  height: 100px;
+  width: auto;
+}
+
+/* Media query section */
+
+@media screen and (max-width: 1300px) {
+  /* The dropdown container */
+  .dropdown {
+    z-index: 999;
+    color: white;
+    overflow: hidden;
+  }
+
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    display: block;
+    z-index: 500;
+    font-family: "Nunito";
+    font-size: 35px;
+    width: 100%;
+    position: relative;
+    top: 0px;
+    height: 80px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 30px 16px;
+    background: transparent;
+  }
+
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover,
+  .dropdown:hover .dropbtn {
+    font-family: "Nunito Sans";
+  }
+
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+  }
+
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    font-family: "Nunito Sans";
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 }
 
 #infos {
   padding-left: 90px;
   padding-right: 90px;
 }
-
-.navbar a:hover {
-  background-color: white;
-  height: 100%;
-  color: black;
-}
-
-.navbar a.active {
-  color: black;
-  font-family: "Nunito Sans";
-}
-
-.navbar img {
-  height: 100%;
-  width: auto;
-  border: none;
-  position: absolute;
-  float: left;
-}
-
 
 h1 {
   text-align: center;
@@ -57,9 +122,6 @@ h1 {
   font-family: "Nunito Sans";
 }
 
-div {
-  display: inline-block;
-}
 
 p {
   font-size: large;
@@ -67,7 +129,7 @@ p {
 
 body {
   font-family: "Nunito";
-  background-image: url("images/fond2.png");
+  background-image: url("/fond2.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -79,7 +141,10 @@ body {
   font-size: 25px;
 }
 
-#ajouteFichiers {
+#ajouteFichiers,
+#telechargeFichiers
+{
+  display: inline-block;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 2%;
@@ -89,11 +154,18 @@ body {
 }
 
 #fichiers {
+  display: inline-block;
   margin-left: 5%;
 }
 
-button {
+#boutonAjouter {
   margin-bottom: 50px;
+  float: right;
+  background-color: black;
+  color: white;
+  padding: 7px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 textarea {
@@ -102,6 +174,7 @@ textarea {
 }
 
 #zoneTexte {
+  display: inline-block;
   margin-right: 80px;
   width: 62%;
   float: right;

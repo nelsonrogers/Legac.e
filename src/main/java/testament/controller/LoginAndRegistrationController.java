@@ -41,7 +41,6 @@ public class LoginAndRegistrationController {
     @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new Utilisateur());
-        System.out.println("salut");
         return "inscription";
     }
 
@@ -58,17 +57,15 @@ public class LoginAndRegistrationController {
 
         String email = userForm.getEmail();
 
-        envoiMail(email);
-        System.out.println(userForm.isTestament());
+        /*envoiMail(email);
         if (userForm.isTestament()) {
             envoiTestament(email);
-        }
+        }*/
 
         return "redirect:/welcome";
 
     }
 
-    /*Pourquoi quand on appelle ça dans la page login ça nous renvoie vers la page welcome ??*/
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
         if (error != null)
@@ -80,23 +77,6 @@ public class LoginAndRegistrationController {
         return "connexion";
     }
     
-    
-    /*@PostMapping("/espaceUtilisateur")
-    public String accueil(@Valid @ModelAttribute("userForm") Utilisateur userForm, Model model, String error, String logout) {
-        
-        if (error != null)
-            model.addAttribute("error", "Nom d'utilisateur ou mot de passe incorrect.");
-
-        if (logout != null)
-            model.addAttribute("message", "Vous avez été déconnecté.");
-        
-        userService.save(userForm);
-        
-        securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
-
-        return "espaceUtilisateur";
-    }*/
-    
     @GetMapping("/esapceUtilisateur")
     public String conecte(Model model) {
         return "espaceUtilisateur";
@@ -106,33 +86,18 @@ public class LoginAndRegistrationController {
     public String welcome(Model model) {
         return "welcome";
     }
-    /*@GetMapping("/inscription")
-    public String inscription(Model model) {
-        return "connexion";
-    }*/
-    
-    /*
-    @GetMapping("/connexion")
-    public String connexion(Model model, String error, String logout) {
-        if (error != null)
-            model.addAttribute("error", "Nom d'utilisateur ou mot de passe incorrect.");
 
-        if (logout != null)
-            model.addAttribute("message", "Vous avez été déconnecté.");
-
-        return "espaceUtilisateur";
-    }*/
     public void envoiMail(String email) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(email, email);
-
+        
         msg.setSubject("Bienvenue sur Legac.e");
         msg.setText("Cher utilisateur,\n\n" +
                 "Merci de faire confiance à Legac.e pour gérer vos données numériques quand vous ne serez plus là. \n\n " +
                 "Vous pouvez maintenant vous connecter en tant qu’utilisateur sur www.legac.e.com afin d’accéder à vos informations personnelles, vos volontés et la configuration de votre page souvenir.\n\n" +
                 "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
                 "L’équipe Legac.e \n");
-
+        
         javaMailSender.send(msg);
     }
 
@@ -151,12 +116,12 @@ public class LoginAndRegistrationController {
 
         // true = text/html
         helper.setText("Cher utilisateur,\n\n" +
-                "En vous inscrivant sur Legac.e.com, vous avez souhaité recevoir un modèle de testament écrit. Vous pouvez le retrouver en pièce jointe de ce mail. \n\n" +
+                "En vous inscrivant sur Legac-e.com, vous avez souhaité recevoir un modèle de testament écrit. Vous pouvez le retrouver en pièce jointe de ce mail. \n\n" +
                 "N’oubliez pas que vous devez inscrire sur votre testament, de manière claire, que Legac.e est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.\n\n" +
-                "Nous vous rappelons qu'un testament doit obligatoirement manuscrit, et que ce modèle n'est donc pas recevable comme testament officiel. Il est juste un exemple. \n\n" +
-                "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
-                "L’équipe Legac.e\n", true);
-
+                "Nous vous rappelons qu'un testament doit obligatoirement être manuscrit, et que ce modèle n'est donc pas recevable comme testament officiel. Il s'agit juste d'un exemple. \n\n" +
+                "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.e@gmail.com.\n\n" +
+                "L’équipe Legac.e\n");
+        
         //FileSystemResource file = new FileSystemResource(new File("classpath:android.png"));
 
         //Resource resource = new ClassPathResource("android.png");
@@ -164,7 +129,7 @@ public class LoginAndRegistrationController {
 
         //ResourceUtils.getFile("classpath:android.png");
 
-        helper.addAttachment("Modèle de testament", new ClassPathResource("Testament.pdf"));
+        helper.addAttachment("Modèle de testament", new ClassPathResource("static/Testament.pdf"));
 
         javaMailSender.send(msg);
 
