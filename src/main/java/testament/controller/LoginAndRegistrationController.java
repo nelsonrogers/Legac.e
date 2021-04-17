@@ -1,5 +1,6 @@
 package testament.controller;
 
+import org.springframework.mail.SimpleMailMessage;
 import testament.entity.Utilisateur;
 import testament.service.SecurityService;
 import testament.service.UserService;
@@ -10,6 +11,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+
+
 
 import javax.validation.Valid;
 
@@ -20,6 +25,9 @@ public class LoginAndRegistrationController {
     private final SecurityService securityService;
 
     private final UserValidator userValidator;
+
+    @Autowired
+    private JavaMailSender javaMailSender;
 
     public LoginAndRegistrationController(UserService userService, SecurityService securityService, UserValidator userValidator) {
         this.userService = userService;
@@ -45,7 +53,11 @@ public class LoginAndRegistrationController {
 
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
+        String email = userForm.getEmail();
+
+        envoiMail(email);
         return "redirect:/welcome";
+
     }
 
     /*Pourquoi quand on appelle ça dans la page login ça nous renvoie vers la page welcome ??*/
@@ -102,4 +114,14 @@ public class LoginAndRegistrationController {
 
         return "espaceUtilisateur";
     }*/
+    public String envoiMail(String email) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setTo(email, email);
+
+        msg.setSubject("Bienvenue sur Legac.e");
+        msg.setText("Merci de vous identifier sur notre site : \nhttps://legace.com");
+
+        javaMailSender.send(msg);
+        return "espaceUtilisateur";
+    }
 }
