@@ -153,6 +153,7 @@ public class LoginAndRegistrationController {
         helper.setText("Cher utilisateur,\n\n" +
                 "En vous inscrivant sur Legac.e.com, vous avez souhaité recevoir un modèle de testament écrit. Vous pouvez le retrouver en pièce jointe de ce mail. \n\n" +
                 "N’oubliez pas que vous devez inscrire sur votre testament, de manière claire, que Legac.e est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.\n\n" +
+                "Nous vous rappelons qu'un testament doit obligatoirement manuscrit, et que ce modèle n'est donc pas recevable comme testament officiel. Il est juste un exemple. \n\n" +
                 "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
                 "L’équipe Legac.e\n", true);
 

@@ -454,6 +454,7 @@ input[type="checkbox"] {
   height: auto;
   width: 792px;
   margin-top: 100px;
+
 }
 
 #renvoi1 {
@@ -464,3 +465,4 @@ input[type="checkbox"] {
 .form-group {
     display: inline-block;
 }
+
