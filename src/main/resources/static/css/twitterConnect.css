@@ -1,0 +1,169 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18 Apr 2021, 16:58:10
+    Author     : nelsonrogers
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+.navbar {
+    overflow: hidden;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: black;
+  }
+  
+  .navbar img {
+    height: auto;
+    width: 178px;
+    border: none;
+    position: absolute;
+    margin-right: 280px;
+  }
+  
+  #titrenavbar {
+    color: white;
+    font-size: 2em;
+    font-family: "Nunito Sans";
+    margin-left: 280px;
+  }
+
+body {
+    margin-top: 140px;
+}
+
+h1 {
+color: black;
+font-size: 2em;
+font-family: "Nunito Sans";
+}
+
+#connexion {
+    border : solid ;
+    border-color: black;
+    background-color: white;
+    border-width: 2px;
+    width: 400px;
+    height: 400px;
+    font-family: 'Nunito';
+    padding: 5px;
+    text-align: center;
+    align-content: center;
+    margin-left: 50px;
+}
+
+#logotwitter {
+    height: 150px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.IDTweet {
+    width: 300px;
+    margin: 10px;
+    margin-left: 30px;
+}
+
+#IDRT {
+    font-size: 1.2em;
+}
+
+.MP {
+    width: 500px;
+    margin: 10px;
+    margin-left: 50px;
+}
+
+#UNDestinataire {
+    width: 400px;
+    font-size: 1.2em;
+}
+
+#ContenuMP {
+    margin-top: 10px;
+    font-size: 1.2em;
+    width: 400px;
+    height: 100px;
+}
+
+#parametres {
+    border : solid ;
+    border-color: black;
+    background-color: white;
+    border-width: 2px;
+    width: 940px;
+    height: 400px;
+    font-family: 'Nunito';
+    padding: 5px;
+    text-align: center;
+    align-content: center;
+    position: absolute;
+    top: 140px;
+    left: 500px;
+}
+
+#para {
+    display: inline-flex;
+}
+
+button {
+    font-size: 2em;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Nunito Sans";
+    background-color: black;
+    color: white;
+    padding: 7px;
+    width: 300px;
+}
+
+#Bvalidation{
+    position: relative;
+    left: -870px;
+    top: 230px;
+}
+  
+#retour {
+    position: absolute;
+    top: 600px;
+    font-size: 3em;
+    left: 450px;
+    width: 650px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Nunito Sans";
+    background-color: black;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+  
+#retour:hover {
+    background-color: #ed1c24;
+}
+  
+body {
+    font-family: "Nunito";
+    background-image: url("/fond.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: inline-flex;
+  }
+
+input, ::placeholder {
+    font-family: 'Nunito';
+}

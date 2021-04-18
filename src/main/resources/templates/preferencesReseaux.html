@@ -33,77 +33,76 @@
       Vous pouvez ici indiquer vos volontés concernant les réseaux que vous utilisez.
     </p>
     <br /><br />
-    <div id="reseaux">
-      <div class="res">
-        <img id="logopaypal" src="/paypal.png"></img>
-        <label id="paypal"> J'utilise cette application</label>
-        <input type="checkbox" id="cpaypal" onclick="showtext()">
-      </div>
-      <p id="spaypal" style="display:none" class="volonte">
-        <input type="checkbox" id="11">
-        <label value="formulaire">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</label>
-      </p>
-      <div class="res">
-          <img  src="/pinterest.jpeg"></img>
-          <label id="pinterest"> J'utilise cette application</label>
-          <input type="checkbox" id="cpinterest" onclick="showtext()">
-      </div>
-      <p id="spinterest" style="display:none" class="volonte">
-        <input type="checkbox" id="21">
-        <label value="formulaire">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</label>
-      </p>
-      <div class="res">
-        <img  src="/facebook.png"></img>
-        <label id="facebook"> J'utilise cette application</label>
-        <input type="checkbox" id="cfacebook" onclick="showtext()">
-      </div>
-      <p id="sfacebook" style="display:none" class="volonte">
-        <input type="checkbox" id="31">
-        <label value="commemoration">Je souhaite avoir accès à la procédure pour transformer mon compte en compte de commémoration</label>
-      </br>
-      <input type="checkbox" id="32">
-        <label value="fermer">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</label>
-      </p>
-      <div class="res">
-        <img  src="/twitter.png"></img>
-        <label id="twitter"> J'utilise cette application</label>
-        <a href="#" id="connectTwitter">Se connecter à Twitter</a>
-        <form th:action="@{/registration}" th:object="${userForm}" method="POST">
-            <input type="checkbox" id="ctwitter" onclick="showtext()">
-        </form>
-      </div>
-        <p id="stwitter" style="display:none" class="volonte">
-          <input type="checkbox" id="41">
-          <label value="rt">Retweeter un tweet</label>
-        </br>
-        <input type="checkbox" id="42">
-        <label value="mp">Envoyer un message privé</label>
-        </br>
-        </p>
-      <div class="res">
-        <img  src="/insta.jpeg"></img>
-        <label id="instagram"> J'utilise cette application</label>
-        <input type="checkbox" id="cinstagram" onclick="showtext()">
-      </div>
-        <p id="sinstagram" style="display:none" class="volonte">
-          <input type="checkbox" id="51">
-          <label value="commemoration">Je souhaite avoir accès à la procédure pour transformer mon compte en compte de commémoration</label>
-          </br>
-          <input type="checkbox" id="52">
-          <label value="fermer">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</label>
-          </p>
-      <div class="res">
-        <img  src="/google.png"></img>
-        <label id="google"> J'utilise cette application</label>
-        <input type="checkbox" id="cgoogle" onclick="showtext()">
-      </div>
-      <p id="sgoogle" style="display:none" class="volonte">
-        <input type="checkbox" id="61">
-        <label value="iam">Je souhaite avoir accès à l'Inactive Account Manager</label>
-      </p>
-      <input type="submit" id="valider" value="Valider">
-    </div>
-    
+    <form>
+        <div id="reseaux">
+            <div class="res">
+                <img id="logopaypal" src="/paypal.png"></img>
+                <label id="paypal"> J'utilise cette application</label>
+                <input type="checkbox" id="cpaypal" onclick="showtext()">
+            </div>
+            <p id="spaypal" style="display:none" class="volonte">
+                <input type="checkbox" id="11">
+                <label value="formulaire">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</label>
+            </p>
+            <div class="res">
+                <img  src="/pinterest.jpeg"></img>
+                <label id="pinterest"> J'utilise cette application</label>
+                <input type="checkbox" id="cpinterest" onclick="showtext()">
+            </div>
+            <p id="spinterest" style="display:none" class="volonte">
+                <input type="checkbox" id="21">
+                <label value="formulaire">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</label>
+            </p>
+            <div class="res">
+                <img  src="/facebook.png"></img>
+                <label id="facebook"> J'utilise cette application</label>
+                <input type="checkbox" id="cfacebook" onclick="showtext()">
+            </div>
+            <p id="sfacebook" style="display:none" class="volonte">
+                <input type="checkbox" id="31">
+                <label value="commemoration">Je souhaite avoir accès à la procédure pour transformer mon compte en compte de commémoration</label>
+            </br>
+            <input type="checkbox" id="32">
+                <label value="fermer">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</label>
+            </p>
+            <div class="res">
+                <img  src="/twitter.png"></img>
+                <label id="twitter"> J'utilise cette application</label>
+                <a href="#" th:href="@{/connect/twitter}" id="connectTwitter">Se connecter à Twitter</a>
+                <input type="checkbox" id="ctwitter" onclick="showtext()">
+            </div>
+              <p id="stwitter" style="display:none" class="volonte">
+                <input type="checkbox" id="41">
+                <label value="rt">Retweeter un tweet</label>
+                </br>
+                <input type="checkbox" id="42">
+                <label value="mp">Envoyer un message privé</label>
+                </br>
+                </p>
+            <div class="res">
+                <img  src="/insta.jpeg"></img>
+                <label id="instagram"> J'utilise cette application</label>
+                <input type="checkbox" id="cinstagram" onclick="showtext()">
+            </div>
+              <p id="sinstagram" style="display:none" class="volonte">
+                <input type="checkbox" id="51">
+                <label value="commemoration">Je souhaite avoir accès à la procédure pour transformer mon compte en compte de commémoration</label>
+                </br>
+                <input type="checkbox" id="52">
+                <label value="fermer">Je souhaite que ma famille recoive le formulaire pour fermer mon compte à ma mort</label>
+                </p>
+            <div class="res">
+                <img  src="/google.png"></img>
+                <label id="google"> J'utilise cette application</label>
+                <input type="checkbox" id="cgoogle" onclick="showtext()">
+            </div>
+            <p id="sgoogle" style="display:none" class="volonte">
+                <input type="checkbox" id="61">
+                <label value="iam">Je souhaite avoir accès à l'Inactive Account Manager</label>
+            </p>
+            <input type="submit" id="valider" value="Valider">
+        </div>
+    </form>
     <script th:src="@{/js/preferencesReseaux.js}" src="../static/js/preferencesReseaux.js"></script>
   </body>
 </html>

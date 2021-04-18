@@ -30,6 +30,9 @@ public class ServiceReseau {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
     
+    @NonNull
+    private Reseau reseau;
+            
     @Nullable
     private String type;
     
