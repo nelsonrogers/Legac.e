@@ -167,3 +167,7 @@ body {
 input, ::placeholder {
     font-family: 'Nunito';
 }
+
+button {
+    cursor: pointer;
+}
