@@ -7,10 +7,12 @@ package testament.controller;
 
 import javax.mail.MessagingException;
 import javax.validation.Valid;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import testament.entity.ServiceReseau;
+import testament.entity.Utilisateur;
 
 /**
  *
@@ -22,10 +24,11 @@ public class serviceReseauController {
     
     
     @PostMapping("/preferenceReseaux")
-    public String registration(@Valid @ModelAttribute("userService") ServiceReseau userService, BindingResult bindingResult) {
-
-
-
+    public String registration(@AuthenticationPrincipal Utilisateur user, 
+            @Valid @ModelAttribute("userService") ServiceReseau userService, 
+            BindingResult bindingResult) {
+        
+        userService.setUtilisateur(user);
         //userService.
         /*envoiMail(email);
         if (userForm.isTestament()) {

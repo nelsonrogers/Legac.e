@@ -18,18 +18,19 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.lang.Nullable;
 
 /**
  *
  * @author nelsonrogers
  */
 @Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
-@Entity 
+@Entity
 public class ServiceReseau {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
     
-    @NonNull
+    @Nullable
     private String type;
     
     @NonNull
@@ -38,10 +39,10 @@ public class ServiceReseau {
     @NonNull
     private String message;
     
-    @NonNull
-    private String image;
+    //@Nullable
+    //private Image image;
     
     @ManyToOne
-    private String reseau;
+    private Utilisateur utilisateur;
     
 }
