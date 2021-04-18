@@ -48,35 +48,24 @@ h1 {
 
 #Menu {
     font-family: "Nunito Sans";
+    position: absolute;
     padding: 15px;
     bottom: 10px;
+    left: 10px;
     width: 200px;
     background-color: black;
     cursor: pointer;
     color: white;
     position: absolute;
     border: none;
+    
 }
-
 #div-username {
-    position: absolute;
-    top: 43%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-bottom: 15px;
 }
 
 #div-mdp {
-    position: absolute;
-    top: 52%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#div-suivant {
-    position: absolute;
-    top: 64%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-bottom: 15px;
 }
 
 #suivant {
@@ -90,10 +79,9 @@ h1 {
     border: none;
 }
 
-div.centre {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.form-group {
+    margin-top: 20%;
+    text-align: center;
 }
 
 #mdp-oublie {
@@ -116,4 +104,9 @@ div.centre {
 
 ::placeholder {
     font-family: "Nunito";
+}
+
+#erreur {
+    justify-content: center;
+    color: red;
 }

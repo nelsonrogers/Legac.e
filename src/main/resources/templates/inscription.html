@@ -149,6 +149,7 @@
             required
           />
         </p>
+        <ul><li class="erreur" th:errors="*{username}">Erreur sur le password</li></ul>
         <p>
           <input
             type="password"
@@ -167,6 +168,8 @@
             required
           />
           <input type="submit" id="valider" value="Valider" />
+          <ul><li class="erreur" th:errors="*{password}">Erreur sur le mot de passe</li></ul>
+          <ul><li class="erreur" th:errors="*{passwordConfirm}">Erreur sur le password</li></ul>
         </p>
         <div id="testamentecrit">
           <input type="checkbox" th:field="*{testament}" id="ctestamentecrit" />

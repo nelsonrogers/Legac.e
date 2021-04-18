@@ -14,21 +14,20 @@
         </div>
     </head>
     <body>
-        <!--ici remplacer "login" par "espaceUtilisateur" pour avoir ce qu'on veut faire : problème, l'utilisateur n'est pas connecté
-        Et POURQUOI quand on subit avec l'action /login ça nous renvoie vers la page welcome ?? 
-        Je n'ai pas l'impression que c'est implémenté dans le controller par le bias de /login...-->
         <form method="POST" th:action="@{/login}" action="#" class="form-signin"> 
             <div class="form-group" th:classappend="${#strings.isEmpty(error) ? 'has-error' : ''}">
                 <div id="div-username">
+                    <span th:text="${message}">Message</span><br><br>
                     <input id="username" name="username" type="text" placeholder="Nom d'utilisateur" autofocus="true"/>
+                    
                 </div>
                 <div id="div-mdp">
                     <input id="mdp" name="password" type="password" placeholder="Mot de Passe" />
+                    <br><br><span id="erreur" class="has-error" th:text="${error}">Message d'erreur</span>
                 </div>
-                <span th:text="${error}">Message d'erreur</span>
                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                 <div id="div-suivant">
-                    <button id="suivant" class="btn btn-lg btn-primary btn-block" type="submit">Suivant</button>
+                    <input id="suivant" class="btn btn-lg btn-primary btn-block" type="submit" value="Suivant"/>
                 </div>
             </div>
         </form>
