@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
 
-
 /* Navbar section */
 .nav {
   margin: 0;
@@ -21,7 +20,6 @@
 }
 
 .dropdown-content a {
-  cursor: pointer;
   float: right;
   background-color: black;
   margin-left: 20px;
@@ -125,6 +123,10 @@ h1 {
 
 p {
   font-size: large;
+}
+
+a {
+  cursor: pointer;
 }
 
 body {

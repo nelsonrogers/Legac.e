@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/informationsUtilisateur.css}" href="../static/css/informationsUtilisateur.css" />
     <title>Informations Utilisateur</title>
     <nav class="nav">
       <div class="container">
           <div class="logo">
-              <a href="#"><img src="/logoNavbar.png"></a>
+              <a href="#" th:href="@{/welcome}"><img id="logo" src="/logoNavbar.png"></a>
           </div>
           <div class="dropdown">
             <button class="dropbtn">Menu
@@ -21,8 +21,8 @@
                 </form>
                 <a onclick="document.forms['logoutForm'].submit()">Déconnexion</a>
                 <a href="#" th:href="@{/user/pageSouvenir}">Page souvenir</a>
-                <a href="#" th:href="@{/user/preferencesResaux}" class="active">Préférences Réseaux</a>
-                <a href="#" th:href="@{/user/informationsUtilisateurs}">Informations Utilisateur</a>
+                <a href="#" th:href="@{/user/preferencesReseaux}" class="active">Préférences Réseaux</a>
+                <a href="#" th:href="@{/user/informationsUtilisateur}">Informations Utilisateur</a>
             </div>
           </div>
       </nav>
@@ -32,10 +32,10 @@
     <p id="p1">
       Vous pouvez ici retrouver vos informations personnelles :
     </p>
-    <a class="renvoi" href=""><img src="images/loupe.png"></a>
+    <a class="renvoi" href=""><img src="/loupe.png"></a>
     <p id="p2">
       Vous pouvez ici accéder à votre formulaire d'inscription pour modifier vos informations personnelles :
     </p>
-    <a class="renvoi" href=""><img src="images/formulaire.png"></a>
+    <a class="renvoi" href=""><img src="/formulaire.png"></a>
   </body>
 </html>

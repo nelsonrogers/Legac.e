@@ -22,6 +22,9 @@
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </form>
                             <a onclick="document.forms['logoutForm'].submit()">Déconnexion</a>
+                            <a href="#" th:href="@{/user/pageSouvenir}">Page souvenir</a>
+                            <a href="#" th:href="@{/user/preferencesReseaux}" class="active">Préférences Réseaux</a>
+                            <a href="#" th:href="@{/user/informationsUtilisateur}">Informations Utilisateur</a>
                         </div>
                     </div>
                 </div>

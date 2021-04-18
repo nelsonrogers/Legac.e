@@ -32,7 +32,7 @@ public class UserController {
         return "preferencesReseaux";
     }
     
-    @GetMapping(path = "informationUtilisateur")
+    @GetMapping(path = "informationsUtilisateur")
     public String informationsUtilisateur(@AuthenticationPrincipal Utilisateur user, Model model) {
         return "informationsUtilisateur";
     }

@@ -6,6 +6,7 @@
 package testament.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,7 @@ import lombok.ToString;
  */
 @Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
 @Entity 
-public class Service {
+public class ServiceReseau {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
     
@@ -32,7 +33,7 @@ public class Service {
     private String type;
     
     @NonNull
-    private LocalDate date;
+    private LocalDateTime date;
     
     @NonNull
     private String message;
@@ -40,9 +41,7 @@ public class Service {
     @NonNull
     private String image;
     
-    /*public boolean isReccurrent(){
-        
-    }*/
-    
+    @ManyToOne
+    private String reseau;
     
 }
