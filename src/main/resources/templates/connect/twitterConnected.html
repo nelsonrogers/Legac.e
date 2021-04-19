@@ -51,26 +51,13 @@
         <h1>Vous êtes connecté(e) à Twitter</h1>
         <div th:each="connection : ${connections}">
             <img src="../../static/images/defaultPersonImage.jpg" th:src="${connection.imageUrl}" alt="" id="logotwitter"/>
-        </br>
+            </br>
             <a href="http://twitter.com" th:href="${connection.profileUrl}" th:text="${connection.displayName}" id="UsernameUtil">Nom de
                 l'utilisateur Twitter</a>
-            <div>
+        <div>
     </div>
-    <div id="parametres">
-        <h1>Paramétrez vos préférences réseaux</h1>
-        <form th:action="@{/connect/twitter}" method="POST" id="para">
-            <div class="IDTweet" >
-                <p>Vous pouvez ici indiquer l'ID du tweet que vous voulez retweeter à votre décès. Si le tweet est supprimé avant votre décès, il n'y aura aucune action sur votre compte</p>
-                <input type="number" id="IDRT" placeholder="ID du tweet">
-            </div>
-            <div class="MP">
-                <p>Vous pouvez ici indiquer le destinataire ainsi que le contenu du Message privé que vous voulez envoyer à votre décès.</p>
-                <input type="text" id="UNDestinataire" placeholder="@usernameDuDestinataire">
-                </br>
-                <textarea name="texte" id="ContenuMP" placeholder="Tapez le contenu du MP que vous voulez envoyer"></textarea>
-            </div>
-            <p><button type="submit" id="Bvalidation">Valider les choix</button></p>
-        </form>
+    <div id="div-bouton">
+        <a href="#" th:href="@{/donnesTwitter}"><button id="Bvalidation">Paramétrez vos préférences Twitter</button></a>
     </div>
     <a id="retour" href="../welcome.html" th:href="@{/}">Retour à la page principale</a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

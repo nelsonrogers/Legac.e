@@ -61,61 +61,13 @@ font-family: "Nunito Sans";
     padding: 5px;
     text-align: center;
     align-content: center;
-    margin-left: 50px;
+    margin-left: 500px;
 }
 
 #logotwitter {
     height: 150px;
     margin-top: 25px;
     margin-bottom: 10px;
-}
-
-.IDTweet {
-    width: 300px;
-    margin: 10px;
-    margin-left: 30px;
-}
-
-#IDRT {
-    font-size: 1.2em;
-}
-
-.MP {
-    width: 500px;
-    margin: 10px;
-    margin-left: 50px;
-}
-
-#UNDestinataire {
-    width: 400px;
-    font-size: 1.2em;
-}
-
-#ContenuMP {
-    margin-top: 10px;
-    font-size: 1.2em;
-    width: 400px;
-    height: 100px;
-}
-
-#parametres {
-    border : solid ;
-    border-color: black;
-    background-color: white;
-    border-width: 2px;
-    width: 940px;
-    height: 400px;
-    font-family: 'Nunito';
-    padding: 5px;
-    text-align: center;
-    align-content: center;
-    position: absolute;
-    top: 140px;
-    left: 500px;
-}
-
-#para {
-    display: inline-flex;
 }
 
 button {
@@ -129,18 +81,12 @@ button {
     padding: 7px;
     width: 300px;
 }
-
-#Bvalidation{
-    position: relative;
-    left: -870px;
-    top: 230px;
-}
   
 #retour {
     position: absolute;
     top: 600px;
     font-size: 3em;
-    left: 450px;
+    left: 400px;
     width: 650px;
     text-align: center;
     text-decoration: none;

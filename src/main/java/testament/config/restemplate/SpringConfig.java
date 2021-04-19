@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan("monprojet.config.restemplate")
+@ComponentScan("testament.config.restemplate")
 public class SpringConfig {
 
     @Bean

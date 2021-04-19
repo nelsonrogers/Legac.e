@@ -21,6 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import testament.entity.Reseau;
+import testament.entity.Utilisateur;
+import testament.entity.Volonte;
+import testament.service.VolonteService;
 
 @Controller
 @Slf4j
@@ -33,6 +39,8 @@ public class PostTweetController {
     String consumerSecret;
 
     ConnectionRepository connectionRepository;
+    
+    //VolonteService volonteService;
 
     public PostTweetController(ConnectionRepository connectionRepository) {
         this.connectionRepository = connectionRepository;
@@ -65,6 +73,32 @@ public class PostTweetController {
         redirectInfo.addFlashAttribute("resultat", resultat);
         return "redirect:tweet"; // POST-Redirect-GET : on se redirige vers le formulaire de tweet
     }
+    /*
+    @GetMapping(path = "tweet")
+    public String showDirectMessageForm(Model model) {
+        // On montre le formulaire de tweet
+        return "twitter/directMessage";
+    }
+    
+    @PostMapping(path = "DM")
+    public String sendDirectMessage(String toUserUsername, String message, RedirectAttributes redirectInfo) {
+        Twitter twitter = configureTwitter();
+        String resultat;
+        try {
+            // twitter.timelineOperations().updateStatus(message);
+            twitter.directMessageOperations().sendDirectMessage(toUserUsername, message);
+            resultat = "Le DM a bien été envoyé";
+        } catch (RuntimeException ex) {
+            resultat = "Impossible d'envoyer : " + ex.getMessage();
+            // log.error("Unable to tweet {}", message, ex);
+        }
+        // RedirectAttributes permet de transmettre des informations lors d'une
+        // redirection,
+        // Ici on transmet un message de succès ou d'erreur
+        // Ce message est accessible et affiché dans la vue 'postTweet.html'
+        redirectInfo.addFlashAttribute("resultat", resultat);
+        return "redirect:DM";
+    }*/
 
     private Twitter configureTwitter() {
         Connection<Twitter> connection = connectionRepository.findPrimaryConnection(Twitter.class);

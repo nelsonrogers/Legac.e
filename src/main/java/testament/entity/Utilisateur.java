@@ -93,6 +93,9 @@ public class Utilisateur implements UserDetails {
     @OneToMany(mappedBy="owner", fetch = FetchType.LAZY)
     @Setter(AccessLevel.NONE)    
     private List<SocialConnection> socialConnections = new LinkedList<>();
+    
+    @OneToMany(mappedBy="utilisateur", fetch = FetchType.LAZY)
+    private List<Volonte> volontesUtilisateur = new LinkedList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

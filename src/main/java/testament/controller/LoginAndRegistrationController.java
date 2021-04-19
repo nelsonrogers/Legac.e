@@ -105,29 +105,18 @@ public class LoginAndRegistrationController {
 
         MimeMessage msg = javaMailSender.createMimeMessage();
 
-        // true = multipart message
         MimeMessageHelper helper = new MimeMessageHelper(msg, true);
         helper.setTo(email);
 
         helper.setSubject("Modèle de testament");
 
-        // default = text/plain
-        //helper.setText("Check attachment for image!");
-
-        // true = text/html
         helper.setText("Cher utilisateur,\n\n" +
                 "En vous inscrivant sur Legac-e.com, vous avez souhaité recevoir un modèle de testament écrit. Vous pouvez le retrouver en pièce jointe de ce mail. \n\n" +
                 "N’oubliez pas que vous devez inscrire sur votre testament, de manière claire, que Legac.e est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.\n\n" +
                 "Nous vous rappelons qu'un testament doit obligatoirement être manuscrit, et que ce modèle n'est donc pas recevable comme testament officiel. Il s'agit juste d'un exemple. \n\n" +
                 "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
                 "L’équipe Legac.e\n");
-        
-        //FileSystemResource file = new FileSystemResource(new File("classpath:android.png"));
 
-        //Resource resource = new ClassPathResource("android.png");
-        //InputStream input = resource.getInputStream();
-
-        //ResourceUtils.getFile("classpath:android.png");
 
         helper.addAttachment("Modèle de testament", new ClassPathResource("static/Testament.pdf"));
 

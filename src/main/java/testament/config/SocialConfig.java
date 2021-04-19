@@ -75,6 +75,7 @@ public class SocialConfig {
     public TextEncryptor textEncryptor() {
         return Encryptors.noOpText();
     }
+    
 /*        
     @Configuration
     @Profile("dev")

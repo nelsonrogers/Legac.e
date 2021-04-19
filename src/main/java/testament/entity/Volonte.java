@@ -26,24 +26,21 @@ import org.springframework.lang.Nullable;
  */
 @Getter @Setter @NoArgsConstructor @RequiredArgsConstructor @ToString
 @Entity
-public class ServiceReseau {
+public class Volonte {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Integer id;
     
     @NonNull
     private Reseau reseau;
-            
+    
     @Nullable
-    private String type;
-    
-    @NonNull
-    private LocalDateTime date;
-    
-    @NonNull
     private String message;
     
-    //@Nullable
-    //private Image image;
+    @Nullable
+    private String idTweet;
+    
+    @Nullable
+    private String usernameDestinataire;
     
     @ManyToOne
     private Utilisateur utilisateur;

@@ -10,5 +10,5 @@ package testament.entity;
  * @author nelsonrogers
  */
 public enum Reseau {
-    TWITTER, FACEBOOK, INSTA, PAYPAL, GOOGLE, PINTEREST;
+    TWITTER, FACEBOOK, LINKEDIN;
 }
