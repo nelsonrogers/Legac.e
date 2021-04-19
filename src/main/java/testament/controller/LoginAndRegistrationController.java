@@ -94,7 +94,7 @@ public class LoginAndRegistrationController {
         msg.setSubject("Bienvenue sur Legac.e");
         msg.setText("Cher utilisateur,\n\n" +
                 "Merci de faire confiance à Legac.e pour gérer vos données numériques quand vous ne serez plus là. \n\n " +
-                "Vous pouvez maintenant vous connecter en tant qu’utilisateur sur www.legac.e.com afin d’accéder à vos informations personnelles, vos volontés et la configuration de votre page souvenir.\n\n" +
+                "Vous pouvez maintenant vous connecter en tant qu’utilisateur sur https://legace.herokuapp.com/ afin d’accéder à vos informations personnelles, vos volontés et la configuration de votre page souvenir.\n\n" +
                 "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
                 "L’équipe Legac.e \n");
         
@@ -119,7 +119,7 @@ public class LoginAndRegistrationController {
                 "En vous inscrivant sur Legac-e.com, vous avez souhaité recevoir un modèle de testament écrit. Vous pouvez le retrouver en pièce jointe de ce mail. \n\n" +
                 "N’oubliez pas que vous devez inscrire sur votre testament, de manière claire, que Legac.e est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.\n\n" +
                 "Nous vous rappelons qu'un testament doit obligatoirement être manuscrit, et que ce modèle n'est donc pas recevable comme testament officiel. Il s'agit juste d'un exemple. \n\n" +
-                "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.e@gmail.com.\n\n" +
+                "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
                 "L’équipe Legac.e\n");
         
         //FileSystemResource file = new FileSystemResource(new File("classpath:android.png"));
