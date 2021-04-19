@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        lang="fr"
+>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Error page</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrat.min.css}" />
+    <link
+            rel="stylesheet"
+            href="error.css"
+            th:href="@{/css/error.css}"
+    />
 </head>
-<body th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
-<h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">404</h1>
-<p th:utext="${errorMessage}">Error java.lang.NullPointerException</p>
-<a href="welcome.html" th:href="@{/}">Retour à l'accueil</a>
+<body
+        th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}"
+>
+<img id="logoerror" src="Logo.png" />
+<div id="diverror">
+    <h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">Erreur 404</h1>
+    <p th:utext="${errorMessage}">Quelque chose s'est mal passé !</p>
+</div>
+<a href="welcome.html" th:href="@{/}">Retour au menu principal</a>
 </body>
 </html>

@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+#logoerror {
+  width: 700px;
+  float: left;
+  margin-top: 100px;
+}
+
+#diverror {
+  position: absolute;
+  left: 700px;
+  height: 400px;
+  width: 600px;
+  border-left: solid black 2px;
+  padding-left: 20px;
+  font-size: 2em;
+  margin-top: 80px;
+}
+
+body {
+  font-family: "Nunito";
+  background-image: url("BGC.png");
+  background-repeat: no-repeat;
+  background-size: 1600px;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-family: "Nunito Sans";
+  font-size: 3em;
+  margin-bottom: 0px;
+  margin-top: 100px;
+}
+
+a {
+  position: absolute;
+  top: 600px;
+  font-size: 3em;
+  left: 450px;
+  width: 650px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Nunito Sans";
+  background-color: black;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+a:hover {
+  background-color: #ed1c24;
+}
