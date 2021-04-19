@@ -57,10 +57,10 @@ public class LoginAndRegistrationController {
 
         String email = userForm.getEmail();
 
-        /*envoiMail(email);
+        envoiMail(email);
         if (userForm.isTestament()) {
             envoiTestament(email);
-        }*/
+        }
 
         return "redirect:/welcome";
 
