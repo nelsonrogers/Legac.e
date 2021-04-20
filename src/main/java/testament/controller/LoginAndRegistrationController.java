@@ -115,7 +115,7 @@ public class LoginAndRegistrationController {
         // on défini le contenu du message
         msg.setText("Cher utilisateur,\n\n" +
                 "Merci de faire confiance à Legac.e pour gérer vos données numériques quand vous ne serez plus là. \n\n " +
-                "Vous pouvez maintenant vous connecter en tant qu’utilisateur sur https://legacetestnelson.herokuapp.com/ afin d’accéder à vos informations personnelles, vos volontés et la configuration de votre page souvenir.\n\n" +
+                "Vous pouvez maintenant vous connecter en tant qu’utilisateur sur https://legaceproject.herokuapp.com/ afin d’accéder à vos informations personnelles, vos volontés et la configuration de votre page souvenir.\n\n" +
                 "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
                 "L’équipe Legac.e \n");
         
