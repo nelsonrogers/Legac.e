@@ -173,9 +173,14 @@ li {
 display: none;
 }
 
-#supprimer {
+#executer {
     padding-top: 20px;
     margin-left: 50%;
+    background-color: black;
+    font-family: "Nunito";
+    padding: 3px;
+    color: white;
+    text-decoration: none;
 }
 
 #div-bdd {

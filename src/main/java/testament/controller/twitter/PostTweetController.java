@@ -54,8 +54,8 @@ public class PostTweetController {
     @GetMapping(path = "tweet")
     public String showTweetForm(Model model) {
         //String username;
-        model.addAttribute("username");
-        System.out.println(model.getAttribute("username"));
+        //model.addAttribute("username");
+        //System.out.println(model.getAttribute("username"));
         // On montre le formulaire de tweet
         return "twitter/postTweet";
     }

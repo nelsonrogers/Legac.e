@@ -47,11 +47,11 @@
             <div id="scan" name="scan">
                 <label for="utilDecedes">Utilisateurs décédés : </label>
                 <li name="utilDecedes" th:each="u: ${utilisateurs}">
-                    Nom: <em th:text="${u.nom}">Nom de l'utilisateur</em>
+                    Nom: <em th:text="${u.nom}">Nom de l'utilisateur</em> <br>
                     Prenom: <em th:text="${u.prenom}">Prenom de l'utilisateur</em> <br><br>
-                    <!--<form th:action="@{/twitter/tweet}" th:object="${username}" method="POST">
-                        <input id="supprimer" type="submit" th:value="${u.username}">Executez les volontés de l'utilisateur n° [[${u.username}]]</input>
-                    </form>-->
+                    <!--<form th:action="@{/twitter/tweet}" th:object="${username}" method="POST">-->
+                        <a id="executer" type="submit" th:href="@{/twitter/tweet}">Executez les volontés de cet utilisateur</a>
+                    <!--</form>-->
                     <br>
                 </li>
             </div>
