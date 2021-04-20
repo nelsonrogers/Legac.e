@@ -40,7 +40,7 @@
         <div>
             <br>
             <label class="label" for="scanner">SCANNER LE FICHIER DE PERSONNES DÉCÉDÉES</label>
-            <form id="submit" th:action="@{/scan/new}" method="POST">
+            <form id="submit" th:action="@{/newScan}" method="POST">
                 <button id="scanner" name="scanner" type="submit">Scanner</button>
             </form>
             <br><br>
@@ -49,11 +49,15 @@
                 <li name="utilDecedes" th:each="u: ${utilisateurs}">
                     Nom: <em th:text="${u.nom}">Nom de l'utilisateur</em>
                     Prenom: <em th:text="${u.prenom}">Prenom de l'utilisateur</em> <br><br>
-                    <a id="supprimer" th:href="@{delete(id=${u.id})}">Supprimer l'utilisateur n° [[${u.id}]]</a>
+                    <!--<form th:action="@{/twitter/tweet}" th:object="${username}" method="POST">
+                        <input id="supprimer" type="submit" th:value="${u.username}">Executez les volontés de l'utilisateur n° [[${u.username}]]</input>
+                    </form>-->
                     <br>
                 </li>
             </div>
             <div id="div-bdd">
+                <h3 th:text="${resultat}">Message de succès ou d'erreur</h3>
+                <br>
                 <a href="#" th:href="@{/h2-console}"><button id="bdd">ACCÉDER À LA BASE DE DONNÉES</button></a>
             </div>
         </div>

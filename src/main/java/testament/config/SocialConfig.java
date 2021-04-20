@@ -23,6 +23,7 @@ import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 import org.springframework.social.twitter.connect.TwitterConnectionFactory;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.social.connect.ConnectionKey;
 import testament.dao.social.UsersConnectionRepositoryImpl;
 
 @Slf4j

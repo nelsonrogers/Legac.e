@@ -50,26 +50,32 @@ public class VolonteController {
     @PostMapping("/donnesTwitter")
     public String enregistrerVolontes(@AuthenticationPrincipal Utilisateur user, @Valid @ModelAttribute("volonte") Volonte volonte, 
             RedirectAttributes redirectInfo) {
-        log.info(user.getNom());
         
+        // resultat : message de succès ou d'erreur de l'enregistrement des volontés
         String resultat;
         try {
-            if (volonte.getIdTweet() != null || volonte.getMessage() != null || volonte.getUsernameDestinataire() != null) {
+            // Si l'utilisateur a bien enregistré ses volontés twitter
+            if (volonte.getIdTweet() != null || !volonte.getMessage().equals("") || !volonte.getUsernameDestinataire().equals("")) {
                 
+                Utilisateur u = utilisateurDAO.getOne(user.getId());
+                volonte.setUtilisateur(u);
+                volonte.setReseau(Reseau.TWITTER);
+
+                // on enregistre les volontés dans la base de données
+                volonteDAO.save(volonte);
+                resultat = "Vos préférences Twitter ont bien été enregistrés";
+            }
+            else {
+                resultat = "Vous n'avez rien enregistré";
+
             }
             
-            Utilisateur u = utilisateurDAO.getOne(user.getId());
-            volonte.setUtilisateur(u);
-            volonte.setReseau(Reseau.TWITTER);
-            
-            volonteDAO.save(volonte);
-            resultat = "Vos préférences Twitter ont bien été enregistrés";
             
         } catch (Exception ex) {
+            // Il y a eu un problème
             resultat = "Un problème est survenu : " + ex.getMessage();
-            // log.error("Unable to tweet {}", message, ex);
         }
-
+        // Message de succès ou d'erreur es affiché
         redirectInfo.addFlashAttribute("resultat", resultat);
         return "redirect:/welcome";
 

@@ -37,7 +37,7 @@ public class Volonte {
     private String message;
     
     @Nullable
-    private String idTweet;
+    private Long idTweet;
     
     @Nullable
     private String usernameDestinataire;

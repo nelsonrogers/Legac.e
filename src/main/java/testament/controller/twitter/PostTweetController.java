@@ -5,6 +5,7 @@
  */
 package testament.controller.twitter;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.social.connect.Connection;
@@ -21,12 +22,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.social.connect.ConnectionKey;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import testament.dao.UserRepository;
 import testament.entity.Reseau;
+import testament.entity.SocialConnection;
 import testament.entity.Utilisateur;
 import testament.entity.Volonte;
-import testament.service.VolonteService;
 
 @Controller
 @Slf4j
@@ -40,14 +44,18 @@ public class PostTweetController {
 
     ConnectionRepository connectionRepository;
     
-    //VolonteService volonteService;
-
+    @Autowired
+    UserRepository utilisateurDAO;
+    
     public PostTweetController(ConnectionRepository connectionRepository) {
         this.connectionRepository = connectionRepository;
     }
 
     @GetMapping(path = "tweet")
     public String showTweetForm(Model model) {
+        //String username;
+        model.addAttribute("username");
+        System.out.println(model.getAttribute("username"));
         // On montre le formulaire de tweet
         return "twitter/postTweet";
     }
@@ -55,17 +63,30 @@ public class PostTweetController {
     @PostMapping(path = "tweet")
     // TODO : bug sur updateStatus
     // public String postTweet(String message, RedirectAttributes redirectInfo) {
-    public String reTweet(Long tweetId, RedirectAttributes redirectInfo) {
-        Twitter twitter = configureTwitter();
+    public String reTweet(@AuthenticationPrincipal Utilisateur user, Long tweetId, RedirectAttributes redirectInfo) {//, @ModelAttribute("username") String username) {
+        Twitter twitter = configureTwitter(); // user);
         String resultat;
+        /*System.out.println(username);
+        Utilisateur utilisateur = utilisateurDAO.findByUsername(username);
+        List<Volonte> volontes = utilisateur.getVolontesUtilisateur();
+        resultat = "Rien à retweeter";
+        for (Volonte volonte : volontes) {
+            if (volonte.getIdTweet() != null) {*/
+
         try {
+            //Long tweetId = volonte.getIdTweet();
             // twitter.timelineOperations().updateStatus(message);
             twitter.timelineOperations().retweet(tweetId);
+            /*twitter.directMessageOperations().sendDirectMessage("BaptisteVilled1", "salut c'est moi");
+            twitter.timelineOperations().updateStatus("Salut comment va ?");*/
             resultat = "Le tweet a bien été posté";
         } catch (RuntimeException ex) {
             resultat = "Impossible de poster : " + ex.getMessage();
             // log.error("Unable to tweet {}", message, ex);
-        }
+        } 
+            //}
+        //}
+        
         // RedirectAttributes permet de transmettre des informations lors d'une
         // redirection,
         // Ici on transmet un message de succès ou d'erreur
@@ -73,40 +94,25 @@ public class PostTweetController {
         redirectInfo.addFlashAttribute("resultat", resultat);
         return "redirect:tweet"; // POST-Redirect-GET : on se redirige vers le formulaire de tweet
     }
-    /*
-    @GetMapping(path = "tweet")
-    public String showDirectMessageForm(Model model) {
-        // On montre le formulaire de tweet
-        return "twitter/directMessage";
-    }
-    
-    @PostMapping(path = "DM")
-    public String sendDirectMessage(String toUserUsername, String message, RedirectAttributes redirectInfo) {
-        Twitter twitter = configureTwitter();
-        String resultat;
-        try {
-            // twitter.timelineOperations().updateStatus(message);
-            twitter.directMessageOperations().sendDirectMessage(toUserUsername, message);
-            resultat = "Le DM a bien été envoyé";
-        } catch (RuntimeException ex) {
-            resultat = "Impossible d'envoyer : " + ex.getMessage();
-            // log.error("Unable to tweet {}", message, ex);
-        }
-        // RedirectAttributes permet de transmettre des informations lors d'une
-        // redirection,
-        // Ici on transmet un message de succès ou d'erreur
-        // Ce message est accessible et affiché dans la vue 'postTweet.html'
-        redirectInfo.addFlashAttribute("resultat", resultat);
-        return "redirect:DM";
-    }*/
 
-    private Twitter configureTwitter() {
+    private Twitter configureTwitter() {  //Utilisateur user) {
+        /*
+        Utilisateur u = utilisateurDAO.getOne(user.getId());
+        List<SocialConnection> socials = u.getSocialConnections();
+            
+            for (SocialConnection social : socials) {
+                String providerId = social.getProviderId();
+                String providerUserId = social.getProviderUserId();
+                ConnectionKey key = new ConnectionKey(providerId, providerUserId);
+                Connection<Twitter> connection = (Connection<Twitter>) connectionRepository.getConnection(key);
+                Twitter twitter = connection.getApi();
+                log.info("Création d'une API twitter pour {}", connection.getDisplayName());
+                return twitter;
+            }*/
+        
         Connection<Twitter> connection = connectionRepository.findPrimaryConnection(Twitter.class);
-        // Twitter twitter = new TwitterTemplate(consumerKey, consumerSecret,
-        // connection.createData().getAccessToken(),
-        // connection.createData().getSecret());
         Twitter twitter = connection.getApi();
-        log.info("Création d'une API twitter pour {}", connection.getDisplayName());
+        
         return twitter;
     }
 
