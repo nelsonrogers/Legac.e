@@ -92,7 +92,7 @@ public class PostTweetController {
         // Ici on transmet un message de succès ou d'erreur
         // Ce message est accessible et affiché dans la vue 'postTweet.html'
         redirectInfo.addFlashAttribute("resultat", resultat);
-        return "redirect:tweet"; // POST-Redirect-GET : on se redirige vers le formulaire de tweet
+        return "redirect:/welcome"; // POST-Redirect-GET : on se redirige vers le formulaire de tweet
     }
 
     private Twitter configureTwitter() {  //Utilisateur user) {

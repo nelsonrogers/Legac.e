@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+
+h4 {
+  font-family: "Nunito";
+}
+
+h2 {
+  font-family: "Nunito Sans";
+  position: relative;
+  top: 60px;
+  margin: auto;
+  margin-left: 20px;
+  font-size: 3em;
+}
+
+#logo {
+  position: absolute;
+  height: 200px;
+  top: 50px;
+  left: 50px;
+}
+
+#twi {
+  position: absolute;
+  height: 200px;
+  top: 50px;
+  right: 80px;
+}
+
+h3 {
+  font-family: "Nunito";
+  position: relative;
+  text-align: justify;
+  top: 100px;
+  width: 300px;
+  margin: auto;
+  font-size: 1.3em;
+}
+
+body {
+  font-family: "Nunito";
+  background-image: url("/fond.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  font-size: 1.6em;
+  border: solid;
+  border-width: 3px;
+  position: relative;
+  font-family: "Nunito";
+  top: 150px;
+}
+
+button {
+  position: relative;
+  top: 200px;
+  font-size: 2em;
+  width: 310px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Nunito Sans";
+  background-color: black;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+}
+
+a {
+  position: absolute;
+  top: 600px;
+  font-size: 3em;
+  left: 450px;
+  width: 650px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Nunito Sans";
+  background-color: black;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+a:hover {
+  background-color: #ed1c24;
+}

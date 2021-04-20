@@ -1,37 +1,3 @@
-<!--<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-    xmlns:th="http://www.thymeleaf.org" lang="fr">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vous êtes connecté à twitter</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" href="../static/css/common.css" />
-</head>
-
-<body>
-
-    <div class="container">
-        <h1>Vous êtes connecté à twitter</h1>
-        <div th:each="connection : ${connections}">
-            <img src="../../static/images/defaultPersonImage.jpg" th:src="${connection.imageUrl}" alt="" />
-            <a href="http://twitter.com" th:href="${connection.profileUrl}" th:text="${connection.displayName}">Nom de
-                l'utilisateur twitter</a>
-            <!--/* Si on est connecté à twitter */-->
-        <!--    <div>
-                Vous pouvez <a href="../twitter/postTweet.html" th:href="@{/twitter/tweet}">retweeter</a>
-            </div>
-        </div>
-        <a href="../welcome.html" th:href="@{/}">Back to Home Page</a>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
-</body>
-
-</html>-->
-        
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
     xmlns:th="http://www.thymeleaf.org" lang="fr">
@@ -39,8 +5,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connectez-vous à Twitter</title>
+    <title>Connecté à Twitter</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/twitterConnected.css}" href="twitterConnected.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
     <div class="navbar">
         <img src="/logoNavbar.png" />
         <p id="titrenavbar">Connexion à Twitter</p>
