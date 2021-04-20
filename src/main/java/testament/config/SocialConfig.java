@@ -29,6 +29,11 @@ import testament.dao.social.UsersConnectionRepositoryImpl;
 @Slf4j
 @Configuration
 public class SocialConfig {
+    
+    /* voir les détails de l'implémentation sur le Spring Social Reference Manual :
+    https://docs.spring.io/spring-social-twitter/docs/1.0.5.RELEASE/reference/htmlsingle/
+    */
+    
     @Value("${spring.social.facebook.appId}")
     String clientId;
     @Value("${spring.social.facebook.appSecret}")

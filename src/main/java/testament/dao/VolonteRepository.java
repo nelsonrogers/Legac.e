@@ -14,5 +14,5 @@ import testament.entity.Volonte;
  * @author nelsonrogers
  */
 public interface VolonteRepository extends JpaRepository<Volonte, Long>{
-    //Volonte FindByUtilisateur(Utilisateur utilisateur);
+    
 }

@@ -19,6 +19,9 @@ import testament.service.VolonteService;
 @RequestMapping(path = "/user")
 @Secured({"ROLE_ADMIN", "ROLE_USER"}) // Réservé aux utilisateurs qui ont le rôle 'ROLE_USER' ou 'ROLE_ADMIN'
 public class UserController {
+    
+    // pageUser utile si on veut une page de connexion depuis laquelle on peut se connecter à plusieurs réseaux
+    
     /*@GetMapping(path = "pageUser")
     public String montrePageUtilisateur(
             @AuthenticationPrincipal Utilisateur user,  // Les infos de l'utilisateur connecté
@@ -28,17 +31,17 @@ public class UserController {
     }*/
     
     @GetMapping(path = "pageSouvenir")
-    public String souvenir(@AuthenticationPrincipal Utilisateur user, Model model) {
+    public String souvenir(Model model) {
         return "pageSouvenir";
     }
     
     @GetMapping(path = "preferencesReseaux")
-    public String preferenceReseaux(@AuthenticationPrincipal Utilisateur user, Model model) {
+    public String preferenceReseaux(Model model) {
         return "preferencesReseaux";
     }
     
     @GetMapping(path = "informationsUtilisateur")
-    public String informationsUtilisateur(@AuthenticationPrincipal Utilisateur user, Model model) {
+    public String informationsUtilisateur(Model model) {
         return "informationsUtilisateur";
     }
     

@@ -18,6 +18,9 @@ import lombok.extern.slf4j.Slf4j;
  * @see https://stackoverflow.com/questions/16748969/java-net-httpretryexception-cannot-retry-due-to-server-authentication-in-strea
  * @see https://www.baeldung.com/spring-rest-template-builder
  */
+
+// le bug peut survenir lorsque l'on veut poster un tweet ou envoyer un Direct Message par exemple
+
 @Slf4j
  public class CustomRestTemplateCustomizer implements RestTemplateCustomizer {
     @Override

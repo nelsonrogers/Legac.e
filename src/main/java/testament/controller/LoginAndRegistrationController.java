@@ -40,6 +40,7 @@ public class LoginAndRegistrationController {
 
     @GetMapping("/registration")
     public String registration(Model model) {
+        // userForm récupère les informations dans le formulaire d'inscription
         model.addAttribute("userForm", new Utilisateur());
         return "inscription";
     }
@@ -48,17 +49,27 @@ public class LoginAndRegistrationController {
     public String registration(@Valid @ModelAttribute("userForm") Utilisateur userForm, BindingResult bindingResult) throws MessagingException {
         userValidator.validate(userForm, bindingResult);
 
+        /*
+        Si des infos renseignées ne sont pas conformes lors de la validation 
+        du formulaire, on renvoie à nouveau sur la page inscription
+        */
         if (bindingResult.hasErrors()) {
             return "inscription";
         }
+        
+        // sinon, on enregistre l'utilisteur
         userService.save(userForm);
-
+        // l'utilisateur s'authentifie automatiquement après son inscription
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-
+        
+        // on récupère l'email perso de l'utilisateur
         String email = userForm.getEmail();
-
+        
+        // on envoie un mail de confirmation
         envoiMail(email);
+        
         if (userForm.isTestament()) {
+            // s'il le souhaite, on envoie un modèle de testament
             envoiTestament(email);
         }
 
@@ -68,9 +79,13 @@ public class LoginAndRegistrationController {
 
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
+        // S'il y a une erreur lors de la connexion, 
+        // c'est dû à une mauvaise saisie de mdp ou nom d'utilisateur
         if (error != null)
             model.addAttribute("error", "Nom d'utilisateur ou mot de passe incorrect.");
-
+        
+        
+        // Si l'utilisateur s'est déconnecté, on lui affiche un message de déconnexion
         if (logout != null)
             model.addAttribute("message", "Vous avez été déconnecté.");
 
@@ -88,13 +103,19 @@ public class LoginAndRegistrationController {
     }
 
     public void envoiMail(String email) {
+        
         SimpleMailMessage msg = new SimpleMailMessage();
+        
+        // on défini le destinataire
         msg.setTo(email, email);
         
+        // on défini l'objet du mail
         msg.setSubject("Bienvenue sur Legac.e");
+        
+        // on défini le contenu du message
         msg.setText("Cher utilisateur,\n\n" +
                 "Merci de faire confiance à Legac.e pour gérer vos données numériques quand vous ne serez plus là. \n\n " +
-                "Vous pouvez maintenant vous connecter en tant qu’utilisateur sur https://legace.herokuapp.com/ afin d’accéder à vos informations personnelles, vos volontés et la configuration de votre page souvenir.\n\n" +
+                "Vous pouvez maintenant vous connecter en tant qu’utilisateur sur https://legacetestnelson.herokuapp.com/ afin d’accéder à vos informations personnelles, vos volontés et la configuration de votre page souvenir.\n\n" +
                 "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
                 "L’équipe Legac.e \n");
         
@@ -106,10 +127,14 @@ public class LoginAndRegistrationController {
         MimeMessage msg = javaMailSender.createMimeMessage();
 
         MimeMessageHelper helper = new MimeMessageHelper(msg, true);
+        
+        // on défini le destinataire
         helper.setTo(email);
-
+        
+        // on défini l'objet
         helper.setSubject("Modèle de testament");
 
+        // on défini le contenu
         helper.setText("Cher utilisateur,\n\n" +
                 "En vous inscrivant sur Legac-e.com, vous avez souhaité recevoir un modèle de testament écrit. Vous pouvez le retrouver en pièce jointe de ce mail. \n\n" +
                 "N’oubliez pas que vous devez inscrire sur votre testament, de manière claire, que Legac.e est le tiers de confiance qui se chargera de la gestion de vos données numériques après votre décès.\n\n" +
@@ -117,7 +142,7 @@ public class LoginAndRegistrationController {
                 "Ce n’était pas vous ? Merci d’envoyer un mail à Legac.etest@gmail.com.\n\n" +
                 "L’équipe Legac.e\n");
 
-
+        // on ajoute une pièce jointe : modèle de testament
         helper.addAttachment("Modèle de testament", new ClassPathResource("static/Testament.pdf"));
 
         javaMailSender.send(msg);

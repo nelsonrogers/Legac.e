@@ -51,6 +51,7 @@ public class ScannerController {
     private UserRepository dao;
     
     private ArrayList<Utilisateur> utilisateurs; 
+    
     /*
     @Autowired
     ConnectionRepository connectionRepository;
@@ -59,38 +60,45 @@ public class ScannerController {
     String consumerKey;
     @Value("${spring.social.twitter.consumerSecret}")
     String consumerSecret;
-*/
+    */
     
     @GetMapping("/newScan")
     public String check() {
         return "pageAdmin";
     }
     
-    
+    // la méthode scan met les infos des utilisateurs dans la même configuration 
+    // que le fichier de personnes décédées
     @PostMapping("/newScan")
-    public String scan(Model model, RedirectAttributes redirectInfo) throws IOException {
+    public String scan(Model model) throws IOException {
         
         utilisateurs = new ArrayList<>();
-        String resultat;
         
+        // On lit le fichier de personnes décédées
         try (FileReader fileReader = new FileReader("src/main/resources/static/deces-2021-m02.txt"); 
             BufferedReader reader = new BufferedReader(fileReader)) {
+            
+            // on récupère les données dans la variable data
             String data = reader.lines().collect(Collectors.joining(System.lineSeparator()));
 
-            System.out.println(data);
+            // on parcoure l'ensemble des utilisateurs dans la base de données
             for (Utilisateur personne : dao.findAll()) {
             
+                /* 
+                * on récupère la date de naissance et on la configure pour 
+                * correspondre au format sur le fichier de personnnes décédées
+                */
                 String date = personne.getDateNaiss().toString();
                 String dateSimple = date.replace("-", "");
                               
-                // La personne a forcément un prénom
+                // La personne a forcément un nom et un prénom
                 String ligne = personne.getNom().toUpperCase() + "*" + personne.getPrenom().toUpperCase();
 
                 // si deuxième prénom
                 if (personne.getPrenom2() != null && !personne.getPrenom2().equals("")) {
                     ligne += " " + personne.getPrenom2().toUpperCase();
                 }
-                //si troisième prénom
+                // si troisième prénom
                 if (personne.getPrenom3() != null && !personne.getPrenom3().equals("")) {
                     ligne += " " + personne.getPrenom3().toUpperCase();
                 }
@@ -110,31 +118,34 @@ public class ScannerController {
                 // sexe : 1 ou 2, puis date de naissance, code commune, nom commune tous enchainés
                 ligne += personne.getSexe() + dateSimple + personne.getCodePostal() + personne.getCommuneNaiss().toUpperCase();
 
-
-                System.out.println(ligne);
-                
                 // si un utilisateur est décédé, on l'ajoute à la liste 
                 if(data.contains(ligne)) {
                     utilisateurs.add(personne);
                 }
             }
             
+            // On renvoie les utilisateurs décédés
             model.addAttribute("utilisateurs", utilisateurs);
             
-            
+            // Si aucun utilisateur est décédé, on envoie un message
             if (utilisateurs.isEmpty()) {
-                resultat = "Aucun utilisateur n'est décédé ce mois-ci";
-                redirectInfo.addFlashAttribute("resultat", resultat);
+                String resultat = "Aucun utilisateur n'est décédé ce mois-ci";
+                model.addAttribute("resultat", resultat);
             }
             
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        
         return "pageAdmin";
     }
 
+
     
+
+    // Pistes pour exécuter automatiquement les volontés si 
+    // l'utilisateur est détecté dans le scan
     
     
     /*
@@ -178,7 +189,6 @@ public class ScannerController {
     public void reTweet(Long tweetId, ConnectionKey key) {
         Twitter twitter = configureTwitter();
         try {
-            tweetId = 1380430292486328324L; // ici on définit pour simplifier la démonstration
             twitter.timelineOperations().retweet(tweetId);
         } 
         catch (RuntimeException ex) {
@@ -187,12 +197,13 @@ public class ScannerController {
     }
     
     private Twitter configureTwitter() {
-        
+        // pb : connectionRepository in null ???
         Connection<Twitter> connection = connectionRepository.findPrimaryConnection(Twitter.class);
         Twitter twitter = connection.getApi();
         return twitter;
     }
     
+    // envoyer un message --> ne fonctionne pas, pb d'authorisation
     public void sendDMessage(String destinataire, String message) {
         System.out.println("Salut");
         Twitter twitter = configureTwitter();

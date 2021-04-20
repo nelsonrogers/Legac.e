@@ -53,35 +53,40 @@ public class PostTweetController {
 
     @GetMapping(path = "tweet")
     public String showTweetForm(Model model) {
-        //String username;
         //model.addAttribute("username");
-        //System.out.println(model.getAttribute("username"));
         // On montre le formulaire de tweet
         return "twitter/postTweet";
     }
 
+    
+    
     @PostMapping(path = "tweet")
     // TODO : bug sur updateStatus
+    // les commentaires sont des pistes 
     // public String postTweet(String message, RedirectAttributes redirectInfo) {
     public String reTweet(@AuthenticationPrincipal Utilisateur user, Long tweetId, RedirectAttributes redirectInfo) {//, @ModelAttribute("username") String username) {
         Twitter twitter = configureTwitter(); // user);
         String resultat;
-        /*System.out.println(username);
+        
+        /*
+        System.out.println(username);
         Utilisateur utilisateur = utilisateurDAO.findByUsername(username);
         List<Volonte> volontes = utilisateur.getVolontesUtilisateur();
         resultat = "Rien à retweeter";
         for (Volonte volonte : volontes) {
-            if (volonte.getIdTweet() != null) {*/
+            if (volonte.getIdTweet() != null) {
+        */
 
         try {
-            //Long tweetId = volonte.getIdTweet();
-            // twitter.timelineOperations().updateStatus(message);
+            
             twitter.timelineOperations().retweet(tweetId);
+            // Long tweetId = volonte.getIdTweet();
+            // twitter.timelineOperations().updateStatus(message);
             /*twitter.directMessageOperations().sendDirectMessage("BaptisteVilled1", "salut c'est moi");
-            twitter.timelineOperations().updateStatus("Salut comment va ?");*/
-            resultat = "Le tweet a bien été posté";
+            twitter.timelineOperations().updateStatus("Salut comment ça va ?");*/
+            resultat = "Le tweet a bien été retweeté";
         } catch (RuntimeException ex) {
-            resultat = "Impossible de poster : " + ex.getMessage();
+            resultat = "Impossible de retweeter : " + ex.getMessage();
             // log.error("Unable to tweet {}", message, ex);
         } 
             //}

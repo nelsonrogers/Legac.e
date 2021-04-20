@@ -53,6 +53,7 @@ public class Utilisateur implements UserDetails {
     private String prenom3;
     
     @NonNull
+    // Contrainte de format pour ressembler au fichier de personnes décédées
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateNaiss;
     
@@ -78,7 +79,8 @@ public class Utilisateur implements UserDetails {
     @Nullable
     @Email
     private String emailProche2;
-
+    
+    // vrai si l'utilisateur a souhaité recevoir un modèle de testament 
     private boolean testament;
    
 

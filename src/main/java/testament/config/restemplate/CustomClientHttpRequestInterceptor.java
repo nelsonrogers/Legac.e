@@ -15,7 +15,7 @@ import org.springframework.http.client.ClientHttpResponse;
 import java.io.IOException;
 
 /**
- * interceptor to log incoming requests
+ * intercepteur permettant de log les requêtes entrantes
  */
 public class CustomClientHttpRequestInterceptor implements ClientHttpRequestInterceptor {
 
