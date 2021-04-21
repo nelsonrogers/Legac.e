@@ -80,6 +80,7 @@ public class ScannerController {
             
             // on récupère les données dans la variable data
             String data = reader.lines().collect(Collectors.joining(System.lineSeparator()));
+            
 
             // on parcoure l'ensemble des utilisateurs dans la base de données
             for (Utilisateur personne : dao.findAll()) {
@@ -90,19 +91,34 @@ public class ScannerController {
                 */
                 String date = personne.getDateNaiss().toString();
                 String dateSimple = date.replace("-", "");
-                              
+                // On supprime les espaces s'il y en a
+                String nom = personne.getNom().replace(" ", "");
+                String prenom = personne.getPrenom().replace(" ", "");
+                String codeCommune = personne.getCodePostal().replace(" ","");
+                String commune = personne.getCommuneNaiss().replace(" ","");
+                
+                
                 // La personne a forcément un nom et un prénom
-                String ligne = personne.getNom().toUpperCase() + "*" + personne.getPrenom().toUpperCase();
-
+                String ligne = nom.toUpperCase() + "*" + prenom.toUpperCase();
+                
                 // si deuxième prénom
-                if (personne.getPrenom2() != null && !personne.getPrenom2().equals("")) {
-                    ligne += " " + personne.getPrenom2().toUpperCase();
+                if (personne.getPrenom2() != null) {
+                    String prenom2 = personne.getPrenom2().replace(" ", "");
+                    // on vérifie que ce n'était pas juste des espaces vides
+                    if (!prenom2.equals("")) {
+                        ligne += " " + prenom2.toUpperCase();
+                    }
                 }
+                
                 // si troisième prénom
-                if (personne.getPrenom3() != null && !personne.getPrenom3().equals("")) {
-                    ligne += " " + personne.getPrenom3().toUpperCase();
+                if (personne.getPrenom3() != null) {
+                    String prenom3 = personne.getPrenom3().replace(" ", "");
+                    // on vérifie que ce n'était pas juste des espaces vides
+                    if (!prenom3.equals("")) {
+                        ligne += " " + prenom3.toUpperCase();
+                    }
                 }
-
+                
                 // fin des prénoms
                 ligne += "/";
 
@@ -116,7 +132,7 @@ public class ScannerController {
                 }
 
                 // sexe : 1 ou 2, puis date de naissance, code commune, nom commune tous enchainés
-                ligne += personne.getSexe() + dateSimple + personne.getCodePostal() + personne.getCommuneNaiss().toUpperCase();
+                ligne += personne.getSexe() + dateSimple + codeCommune + commune.toUpperCase();
 
                 // si un utilisateur est décédé, on l'ajoute à la liste 
                 if(data.contains(ligne)) {
