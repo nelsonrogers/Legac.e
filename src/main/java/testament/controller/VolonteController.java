@@ -63,7 +63,7 @@ public class VolonteController {
 
                 // on enregistre les volontés dans la base de données
                 volonteDAO.save(volonte);
-                resultat = "Vos préférences Twitter ont bien été enregistrés";
+                resultat = "Vos préférences Twitter ont bien été enregistrées";
             }
             else {
                 resultat = "Vous n'avez rien enregistré";
